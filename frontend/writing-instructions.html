@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Listening Instructions | IELTS Mock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/instructions.css" />
+</head>
+<body>
+
+<header class="header">
+  <h1>Writing Test Instructions</h1>
+</header>
+
+<main class="container">
+
+  <section class="instructions-box">
+    <p>
+      The Writing test consists of <strong>two tasks</strong>.
+    </p>
+
+    <ul>
+      <li><strong>Task 1:</strong> Describe visual information (150 words).</li>
+      <li><strong>Task 2:</strong> Write an essay responding to an argument or problem (250 words).</li>
+      <li>You have <strong>60 minutes</strong> to complete both tasks.</li>
+      <li>You should spend about 20 minutes on Task 1 and 40 minutes on Task 2.</li>
+      <li>You can switch freely between tasks.</li>
+      <li>Answers are saved automatically.</li>
+    </ul>
+
+    <p class="warning">
+      Once the test starts, it cannot be paused.
+    </p>
+  </section>
+
+  <section class="video-box">
+    <video controls>
+      <source src="assets/reading-intro.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <button id="startWritingBtn" class="primary-btn">
+    Start Writing Test
+  </button>
+
+</main>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const mock = params.get("mock");
+
+  if (!mock) {
+    alert("Mock test not specified");
+    throw new Error("Missing mock param");
+  }
+
+  document.getElementById("startWritingBtn").addEventListener("click", () => {
+    window.location.href = location.href = `writing-test.html?test=writing_${mock}`;
+  });
+</script>
+
+</body>
+</html>

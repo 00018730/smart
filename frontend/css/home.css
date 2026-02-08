@@ -1,0 +1,348 @@
+/* ========== RESET ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f7f9f8;
+  color: #002b2a;
+  line-height: 1.6;
+}
+
+/* ========== GLOBAL ========== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  color: #009472;
+  margin-bottom: 40px;
+}
+
+/* ========== BUTTONS ========== */
+.btn-primary {
+  background: #009472;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #007e61;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #009472;
+  color: #009472;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ========== HEADER ========== */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-placeholder {
+  width: 38px;
+  height: 38px;
+  background: #e6f6f1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #009472;
+}
+
+.center-name {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.main-nav {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #002b2a;
+  font-weight: 500;
+}
+
+.lang-switch {
+  font-size: 13px;
+  color: #555;
+}
+
+/* ========== HERO ========== */
+.hero {
+  padding: 90px 0;
+  background: #ffffff;
+}
+
+.hero-inner {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 17px;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+/* ========== ABOUT ========== */
+.about {
+  padding: 80px 0;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text h2 {
+  color: #009472;
+  margin-bottom: 16px;
+}
+
+.visual-box {
+  width: 100%;
+  height: 260px;
+  background: #eaf7f3;
+  border-radius: 16px;
+}
+
+/* ========== COURSES ========== */
+.courses {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  background: #f9f9f9;
+  padding: 26px;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ========== TEACHERS ========== */
+.teachers {
+  padding: 80px 0;
+}
+
+.teacher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.teacher-card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.teacher-photo {
+  width: 90px;
+  height: 90px;
+  background: #ddd;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+}
+
+/* ========== PRACTICE ========== */
+.practice {
+  padding: 80px 0;
+  background: #e6f6f1;
+  text-align: center;
+}
+
+.practice-inner h2 {
+  margin-bottom: 14px;
+  color: #009472;
+}
+
+.practice-inner p {
+  margin-bottom: 26px;
+}
+
+/* ========== FOOTER ========== */
+.site-footer {
+  background: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Container */
+.lang-switcher {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Circle button */
+.lang-current {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #009472;
+  background: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dropdown */
+.lang-dropdown {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  overflow: hidden;
+  display: none;
+  min-width: 140px;
+}
+
+/* Dropdown buttons */
+.lang-dropdown button {
+  width: 100%;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lang-dropdown button:hover {
+  background: #e6f6f1;
+}
+
+/* Flag size */
+.lang-dropdown .flag {
+  font-size: 18px;
+}
+
+.lang-current img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.lang-dropdown img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  height: 36px;     /* control size here */
+  width: auto;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #009472;
+  white-space: nowrap;
+}
+
+.brand-logo {
+  height: 34px;
+}
+
+/* ===== PAGE TRANSITION OVERLAY ===== */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  background: #009472;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.page-transition.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.primary-btn {
+  transition: transform 0.15s ease;
+}
+
+.primary-btn:active {
+  transform: scale(0.97);
+}

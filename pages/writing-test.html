@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Writing Test | IELTS Mock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../css/writing.css" />
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="writing-header">
+  <h1 class="writing-title">Writing Test</h1>
+  <div id="timer" class="writing-timer">60:00</div>
+</header>
+
+<!-- ================= MAIN ================= -->
+<main class="writing-main">
+
+  <!-- ===== LEFT: TASK ===== -->
+  <section class="task-panel">
+    <div class="task-box">
+
+      <div class="task-instruction">
+        <h2>Writing Task</h2>
+        <p>
+          You should spend about <strong>40 minutes</strong> on this task.<br>
+          Write at least <strong>250 words</strong>.
+        </p>
+      </div>
+
+      <div class="task-question">
+        <p>
+          Some people believe that technology has made life easier,
+          while others argue that it has made life more complicated.
+        </p>
+
+        <p>
+          Discuss both views and give your own opinion.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DIVIDER ===== -->
+  <div class="writing-divider"></div>
+
+  <!-- ===== RIGHT: RESPONSE ===== -->
+  <section class="response-panel">
+    <div class="response-box">
+
+      <textarea
+        id="writingBox"
+        placeholder="Write your answer here..."
+        spellcheck="false"
+      ></textarea>
+
+      <div class="response-meta">
+        <span id="wordCount">0 words</span>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="writing-footer">
+  <button class="nav-btn secondary">Previous</button>
+  <button class="nav-btn primary">Submit Writing</button>
+</footer>
+
+<script src="../js/writing/writing-data.js"></script>
+  <script src="../js/writing/writing-engine.js"></script>
+
+</body>
+</html>

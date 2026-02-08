@@ -1,0 +1,149 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #009472, #002b2a);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 64px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo img {
+  width: 48px;
+  height: 48px;
+}
+
+.logo span {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  gap: 16px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #e0f2ef;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.2);
+  transition: 0.2s ease;
+}
+
+.nav a.active,
+.nav a:hover {
+  background: #009472;
+  color: #ffffff;
+}
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  padding: 80px 64px;
+  gap: 40px;
+}
+
+.hero-eyebrow {
+  font-size: 14px;
+  letter-spacing: 4px;
+  margin-bottom: 24px;
+  opacity: 0.85;
+}
+
+.hero-title {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 48px;
+}
+
+/* BUTTONS */
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 260px;
+}
+
+.btn-secondary {
+  background: #e9f5f3;
+  color: #009472;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  color: #009472;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-primary .arrow {
+  background: #009472;
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16px;
+}
+
+/* HERO RIGHT */
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-ring {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  padding: 10px;
+  background: #ffffff;
+}
+
+.avatar-ring img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}

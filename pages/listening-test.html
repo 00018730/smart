@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IELTS Listening Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/listening.css" />
+</head>
+<body>
+
+  <!-- ================= HEADER (FIXED) ================= -->
+  <header class="listening-top">
+
+    <!-- Hidden audio (engine controls it) -->
+    <audio id="audioPlayer"></audio>
+
+    <!-- Audio progress bar -->
+    <div class="audio-progress-wrapper">
+      <div id="audioProgress" class="audio-progress-bar"></div>
+    </div>
+
+    <!-- Parts -->
+    <div class="parts-bar">
+      <div class="sections">
+        <!-- Part buttons injected by engine -->
+      </div>
+    </div>
+
+    <!-- Timer (hidden until audio ends) -->
+    <div id="timer" class="listening-timer hidden">
+      02:00
+    </div>
+
+  </header>
+
+  <!-- ================= MAIN CONTENT (SCROLLABLE) ================= -->
+  <main class="listening-main">
+
+    <!-- Instructions -->
+    <section id="instructions" class="instructions">
+      <!-- injected by engine -->
+    </section>
+
+    <!-- Questions -->
+    <section id="questionsBox" class="questions-box">
+      <!-- injected by engine -->
+    </section>
+
+  </main>
+
+  <!-- ================= BOTTOM BAR (FIXED) ================= -->
+  <footer class="listening-bottom">
+  <button id="prevBtn" class="nav-btn">Previous</button>
+
+  <div id="questionNavigator" class="navigator">
+    <!-- bubbles injected by engine -->
+  </div>
+
+  <button id="nextBtn" class="nav-btn primary">Next</button>
+</footer>
+
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="../js/listening/listening-data.js"></script>
+  <script src="../js/listening/listening-engine.js"></script>
+
+  <div id="finishOverlay" class="finish-overlay hidden">
+  <div class="finish-modal">
+    <h2 id="finishTitle"></h2>
+    <p id="finishMessage"></p>
+    <button id="finishBtn"></button>
+  </div>
+</div>
+
+</body>
+</html>

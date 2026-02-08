@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reading Instructions | IELTS Mock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/instructions.css" />
+</head>
+<body>
+
+<header class="header">
+  <h1>Reading Test Instructions</h1>
+</header>
+
+<main class="container">
+
+  <section class="instructions-box">
+    <p>
+      You will read three passages and answer questions based on the texts.
+    </p>
+
+    <ul>
+      <li>The test lasts <strong>60 minutes</strong>.</li>
+      <li>You can move freely between passages.</li>
+      <li>All answers must be entered before time ends.</li>
+      <li>There is <strong>no extra transfer time</strong>.</li>
+      <li>Do not refresh or leave the page during the test.</li>
+    </ul>
+
+    <p class="warning">
+      Once the test starts, it cannot be paused.
+    </p>
+  </section>
+
+  <section class="video-box">
+    <video controls>
+      <source src="assets/reading-intro.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <button id="startReadingBtn" class="primary-btn">
+    Start Reading Test
+  </button>
+
+</main>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const mock = params.get("mock");
+
+  if (!mock) {
+    alert("Mock test not specified");
+    throw new Error("Missing mock param");
+  }
+
+  document.getElementById("startReadingBtn").addEventListener("click", () => {
+    window.location.href = location.href = `reading-test.html?test=reading_${mock}`;
+  });
+</script>
+
+</body>
+</html>
