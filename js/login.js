@@ -1,67 +1,61 @@
 console.log("🔐 Login loaded");
 
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("loginForm");
+  const errorMsg = document.getElementById("errorMsg");
 
-const SUPABASE_URL = "https://imdqpbxqrxrlbxlqeeju.supabase.co";
-const SUPABASE_SERVICE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZHFwYnhxcnhybGJ4bHFlZWp1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2OTI0NjMyMCwiZXhwIjoyMDg0ODIyMzIwfQ.U82C7IPzAu6mCvSU4-QCBtAMUL2arJsom8cGv_f0YhY";
-
-const form = document.getElementById("loginForm");
-const errorMsg = document.getElementById("errorMsg");
-
-form.addEventListener("submit", async e => {
-  e.preventDefault();
-
-  const fullName = document.getElementById("fullName").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  if (!fullName || !password) {
-    errorMsg.textContent = "All fields are required";
+  if (!form) {
+    console.error("❌ loginForm not found");
     return;
   }
 
-  const params = new URLSearchParams(window.location.search);
-  const mockId = params.get("mock");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  if (!mockId) {
-    alert("Mock test not selected");
-    return;
-  }
+    const fullName = document.getElementById("fullName").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-  try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/attempts`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": SUPABASE_SERVICE_KEY,
-        "Authorization": `Bearer ${SUPABASE_SERVICE_KEY}`,
-        "Prefer": "return=representation"
-      },
-      body: JSON.stringify({
-        full_name: fullName,
-        mock_id: mockId,
-        status: "in_progress"
-      })
-    });
-
-    if (!res.ok) {
-      throw new Error("Failed to create attempt");
+    if (!fullName || !password) {
+      errorMsg.textContent = "All fields are required";
+      return;
     }
 
-    const data = await res.json();
-    const attemptId = data[0].id;
+    const params = new URLSearchParams(window.location.search);
+    const mockId = params.get("mock");
 
-    // ✅ STORE ATTEMPT
-    sessionStorage.setItem("attemptId", attemptId);
-    sessionStorage.setItem("mockId", mockId);
-    sessionStorage.setItem("studentName", fullName);
+    if (!mockId) {
+      alert("Mock test not selected");
+      return;
+    }
 
-    console.log("✅ Attempt created:", attemptId);
+    // ... existing code ...
+try {
+  const { data, error } = await window.supabaseClient
+    .from('test_attempts') // <--- Changed from 'attempts' to 'test_attempts'
+    .insert([
+      { 
+        full_name: fullName, 
+        mock_id: mockId, 
+        status: "in_progress" 
+      }
+    ])
+    .select();
+// ... rest of the code ... // This acts like "return=representation"
 
-    window.location.href = `listening-instructions.html?mock=${mockId}`;
+      if (error) throw error;
 
-  } catch (err) {
-    console.error(err);
-    alert("Login failed. Please try again.");
-  }
+      if (data && data.length > 0) {
+        const attemptId = data[0].id;
+
+        sessionStorage.setItem("attemptId", attemptId);
+        sessionStorage.setItem("studentName", fullName);
+        sessionStorage.setItem("mockId", mockId);
+
+        window.location.href = `listening-instructions.html?mock=${mockId}`;
+      }
+    } catch (err) {
+      console.error("Supabase Error:", err.message || err);
+      alert("Login failed. Please try again.");
+    }
+  });
 });
-
-console.log("ATTEMPT ID:", attemptId);
