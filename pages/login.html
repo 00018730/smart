@@ -10,13 +10,13 @@
 
   <div class="login-container">
     <h1>Sign in to continue</h1>
-    <p>Enter your details to start the IELTS mock test</p>
+    <p>Enter your credentials to start the IELTS mock test</p>
 
     <form id="loginForm">
       <input
         type="text"
         id="fullName"
-        placeholder="Full name"
+        placeholder="Username"
         required
       />
 
@@ -27,7 +27,7 @@
         required
       />
 
-      <p class="error" id="errorMsg"></p>
+      <p class="error" id="errorMsg" style="color: #ff4d4d; min-height: 20px;"></p>
 
       <button type="submit" id="startBtn">Start Test</button>
     </form>
@@ -35,9 +35,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <script type="module" src="../js/supabase/client.js"></script>
-<script src="../js/login.js" defer></script>
-
+  <script type="module" src="../js/login.js"></script>
   
 </body>
 </html>

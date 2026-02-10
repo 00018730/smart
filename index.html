@@ -64,8 +64,9 @@
       not memorization.
     </p>
     <div class="hero-buttons">
-      <button class="btn-primary" data-i18n="enrollBtn">Enroll Now</button>
-<button class="btn-outline" data-i18n="practiceBtn">Try Practice Test</button>
+      <button class="enroll-btn" onclick="window.location.href='pages/register.html'">
+  Enroll Now
+</button>
     </div>
   </div>
 </section>
@@ -108,24 +109,35 @@
   <div class="container">
     <h2 class="section-title">Our Teachers</h2>
 
-    <div class="teacher-grid">
-      <div class="teacher-card">
-        <div class="teacher-photo"></div>
-        <h3>Teacher Name</h3>
-        <p>IELTS Instructor</p>
+    <div class="carousel-container">
+      <div class="teacher-carousel" id="teacherCarousel">
+        <div class="teacher-card active">
+          <div class="teacher-photo">
+             <img src="assets/teacher1.jpg" alt="Teacher"> </div>
+          <h3>Abdurahmon Nasriddinov</h3>
+          <p>IELTS 8.5</p>
+          <p>Speaking 9</p>
+        </div>
+
+        <div class="teacher-card">
+          <div class="teacher-photo">
+             <img src="assets/teacher2.jpg" alt="Teacher">
+          </div>
+          <h3>Emma Wilson</h3>
+          <p>English Teacher</p>
+        </div>
+
+        <div class="teacher-card">
+          <div class="teacher-photo">
+             <img src="assets/teacher3.jpg" alt="Teacher">
+          </div>
+          <h3>Alex Turner</h3>
+          <p>Speaking Coach</p>
+        </div>
       </div>
 
-      <div class="teacher-card">
-        <div class="teacher-photo"></div>
-        <h3>Teacher Name</h3>
-        <p>English Teacher</p>
-      </div>
-
-      <div class="teacher-card">
-        <div class="teacher-photo"></div>
-        <h3>Teacher Name</h3>
-        <p>Speaking Coach</p>
-      </div>
+      <button class="nav-btn prev" id="prevBtn">❮</button>
+      <button class="nav-btn next" id="nextBtn">❯</button>
     </div>
   </div>
 </section>
@@ -148,6 +160,8 @@
     <p>© 2026 Smart Learning Center. All rights reserved.</p>
   </div>
 </footer>
+
+<script src="js/carousel.js"></script>
 
 <script src="js/lang.js"></script>
 <div id="pageTransition" class="page-transition"></div>

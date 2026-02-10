@@ -155,27 +155,8 @@ An iconic chain store in New Zealand reaches a milestone
 <strong>B</strong> Farmers' longevity can be attributed to the philosophy fostered by Robert Laidlaw, the Scottish immigrant who established the business. Right from the outset, Laidlaw guaranteed customer satisfaction, and those who were not entirely happy with a purchase would receive a full refund with no questions asked. This was certainly the first time such a guarantee had been made by a New Zealand retailer and was probably one of the first worldwide. Laidlaw believed that the scheme could work if he ensured that every product sold was of the highest quality relative to its price. 
 <strong>C</strong> Another important aspect of the Farmers' philosophy was to internationalize the New Zealand market. By the time the Hobson Street store opened in 1920 in order to sell directly to customers for the first time, Laidlaw had established buying offices in New York and London so as to offer his customers the latest designs. This was a bold move in those days and won Farmers a devoted following. It's also true that whoever you speak to regarding Farmers in the early years, whether managers or workers, they all emphasize how the company represented a large family. Everyone employed by Laidlaw felt they were building something that would ultimately be to the benefit of the whole country. For example, to mark the centenary celebrations, 58 Farmers' stores around the country announced the neighborhood charities they would raise funds for everything from guide dog services to volunteer fire brigades will benefit. 
 <strong>D</strong> Farmers has always had a heart, according to former board chairman Rawdon Busfield. 'One day I was in the Hobson Street store and a woman came in with two small children-they didn't have a lot of money, you could tell. That week we had a special on, a big bar of chocolate for a shilling ... But the boy only had a penny. I took the penny and gave him the chocolate.' However, not everything has stayed the same. Farmers was once home to genteel tea rooms, children's playgrounds, and an annual sale to celebrate the birthday of Hector the Parrot-who came to embody the store in the eyes of many shoppers and who died, aged 131, in the 1970s. You could buy houses from Farmers, and its saddle factory supplied the armed forces. In fact, although the company has grown considerably over the years, today it sells a narrower assortment of products than in the past. 
-<strong>E</strong> Walk through a Farmers store today and you'll see big changes. Its most recent 
-branch in the suburb of Albany is filled with bright lights and big brands. The branch 
-sells cosmetics from 16 different international companies and buys from 
-approximately 500 suppliers, of which about 30 percent are locally owned. 'Eight or 
-ten years ago,' says current chief executive Rod McDermott, 'lots of brands wouldn't 
-partner with us. We weren't in trouble as such, but we could have been doing much 
-better because we were focused too much on price and not on fashion. The 
-reorientation of the last decade has seen a great improvement.' 
-<strong>F</strong> Farmers almost didn't pull through one economic crisis. In the mid-1980s, 
-business was booming and the company had stores throughout the country. Then, 
-with sales topping $3 7 5 million, it was taken over by Chase Corporation. Lincoln 
-Laidlaw, the son of the company's founder, remembers the dark days following the 
-stock market crash of 1987 and the collapse of the Chase Corporation. The business 
-was being divided up, 'he says,' and I believe that the original culture of the store 
-was dispelled and it hasn't been recovered. That's a shame, but the business is still 
-strong. 'For a few turbulent years the stores were controlled first by a consortium of 
-Australian banks, and later a local corporation. In 2003, it went back into 'family' 
-ownership with the purchase by the James Pascoe Group owned by an established 
-New Zealand retail family. Brand power has made Farmers profitable again, 
-according to McDermott.' And now we're becoming the brand we used to be ... It's 
-like the rebirth of an icon. 
+<strong>E</strong> Walk through a Farmers store today and you'll see big changes. Its most recent branch in the suburb of Albany is filled with bright lights and big brands. The branch sells cosmetics from 16 different international companies and buys from approximately 500 suppliers, of which about 30 percent are locally owned. 'Eight or ten years ago,' says current chief executive Rod McDermott, 'lots of brands wouldn't partner with us. We weren't in trouble as such, but we could have been doing much better because we were focused too much on price and not on fashion. The reorientation of the last decade has seen a great improvement.' 
+<strong>F</strong> Farmers almost didn't pull through one economic crisis. In the mid-1980s, business was booming and the company had stores throughout the country. Then, with sales topping $3 7 5 million, it was taken over by Chase Corporation. Lincoln Laidlaw, the son of the company's founder, remembers the dark days following the stock market crash of 1987 and the collapse of the Chase Corporation. The business was being divided up, 'he says,' and I believe that the original culture of the store was dispelled and it hasn't been recovered. That's a shame, but the business is still strong. 'For a few turbulent years the stores were controlled first by a consortium of Australian banks, and later a local corporation. In 2003, it went back into 'family' ownership with the purchase by the James Pascoe Group owned by an established New Zealand retail family. Brand power has made Farmers profitable again, according to McDermott.' And now we're becoming the brand we used to be ... It's like the rebirth of an icon. 
         `,
 
         questions: [
@@ -303,75 +284,14 @@ like the rebirth of an icon.
         title: "Life on Mars? ",
 
         text: `
-<strong>A</strong> When scientists began observing Mars with their first primitive telescopes, they 
-assumed from the start that the planet was peopled. The 18th-century astronomer 
-William Herschel, noting the seasons and atmosphere of Mars, declared that 'its 
-inhabitants enjoy a situation similar to our own'. A century later, astronomers 
-asserted that they could detect canals running across the Martian landscape. These 
-canals, argued US scientist Percival Lowell, had been built by technologically 
-advanced Martians to transport water from the poles to the equator of their drying 
-world. 'Martian folk are possessed of inventions of which we have not dreamed,' he 
-argued. 
-<strong>B</strong> The vision of an advanced culture trapped on a drying world was taken up by the 
-British writer H.G. Wells in 1898 in his masterpiece The War of the Worlds, in 
-which Earth is subjected to a pitiless invasion from a race of hideous Martians armed 
-with poison gas and heat rays. Martians became synonymous with grotesque, 
-threatening aliens, at least as far as the public was concerned. Scientists were more 
-restrained, but still supported the idea that the planet might support relatively 
-complex life forms. 
-<strong>C</strong> Then, in the late 1960s, rocket science changed our image of Mars forever. The 
-US Mariner probes swept past Mars and sent back pictures, not of a world covered 
-in vegetation, as many scientists still expected, but of vistas of cratered, arid deserts. 
-Finally, in 1975, two huge US probes settled on the Martian surface and began a 
-series of experiments aimed at pinpointing, once and for all, the existence of air
-breathing organisms.None were found, for the Viking probes landed in areas as dead 
-as the Sahara Desert. All that was sent back were images of a bleak, boulder-strewn 
-terrain. Mars was declared officially dead - for a while. 
-<strong>D</strong> Since that time, two critical pieces of evidence have been found on Earth which 
-support the idea that Mars has life. The first is known as ALH84001, a meteorite that 
-was blasted into space when a large body struck Mars 15 million years ago and 
-which spiralled across the solar system to crash into the Antarctic. Analysis carried 
-out by NASA scientist Imre Friedmann showed that the meteorite contained 
-elements identical to those found on Mars by the Viking probes, and revealed chains 
-of crystals similar to those created by earthbound bacteria. Friedmann believes that 
-these could only have been created by living organisms. Others, however, argue that 
-the crystals could have been laid down by simple chemical processes. A second area 
-of support for the idea that living organisms could survive Mars's harshness has been 
-provided by the study of extremophiles, bacteria that have been found in increasingly 
-hostile landscapes on Earth - acid lakes, for example, and volcanoes. 
-<strong>E</strong> In the past few years, astronomers have become convinced that the Martian 
-surface, although hostile and arid today, was once lush and welcoming. Images sent 
-back by recent probes such as the Mars Global Surveyor have revealed dried-up 
-riverbeds and old estuaries. Rivers poured into ancient seas, it appears, and rain 
-swept the sodden terrain. Then catastrophe struck. Mars lost its magnetic field 
-several billion years ago, explains British astronomer Paul Murdin. 'Earth retained 
-one, and it protects our atmosphere. Without that protection, Mars's gases and water 
-boiled off.' That is why they are so different today. 
-<strong>F</strong> The discovery of signs of water on Mars has changed everything. Some 
-researchers believe that water from underground reservoirs still gushes through 
-Martian valleys as occasional flash floods bubble to the surface. In the 1990s, the 
-Mars Odyssey probe began to map the chemical make-up of the Mars soil, and 
-discovered that much of the ground in the southern hemisphere of Mars is mixed 
-with large quantities of ice. And where there is ice, there is likely to be liquid water, 
-probably underneath. 'There are huge underground reservoirs on Mars, says 
-Marcello Coradini, head of planetary exploration for the European Space Agency. I 
-am now convinced of that.' 
-<strong>G</strong> Current projects are hoping to clarify the question of the presence of water once 
-and for all. These are aimed at conducting experiments to detect the presence of a 
-substance called carbon 13 in soil and rock samples on Mars; this would be, 
-according to some researchers, an unequivocal indicator of the presence of living 
-organisms, past or present. 
-<strong>H</strong> But would the presence of a few Martian organisms alter our world view in any 
-significant way? Professor Juan Perez Mercader of Madrid's Centre for Astrobiology 
-in Spain believes that it would. 'For a start, we will be able to find out if Martian 
-organisms have DNA, the golden molecule that controls the replication of earthly 
-creatures.' If there is no DNA, that would show that Martian biology is quite unlike 
-Earth's, and that on two planets, side by side in the same solar system, life evolved 
-independently. IfDNA is located, it would mean that life on Mars and on Earth may 
-spring from the same source. 'If organisms can pop up that easily, our chances of 
-finding intelligent versions elsewhere in the universe will look extremely good,' 
-Perez Mercader states. The discovery of any evidence of living organisms on Mars 
-would also mean renewed pmpose for manned space flight projects. 
+<strong>A</strong> When scientists began observing Mars with their first primitive telescopes, they assumed from the start that the planet was peopled. The 18th-century astronomer William Herschel, noting the seasons and atmosphere of Mars, declared that 'its inhabitants enjoy a situation similar to our own'. A century later, astronomers asserted that they could detect canals running across the Martian landscape. These canals, argued US scientist Percival Lowell, had been built by technologically advanced Martians to transport water from the poles to the equator of their drying world. 'Martian folk are possessed of inventions of which we have not dreamed,' he argued. 
+<strong>B</strong> The vision of an advanced culture trapped on a drying world was taken up by the British writer H.G. Wells in 1898 in his masterpiece The War of the Worlds, in which Earth is subjected to a pitiless invasion from a race of hideous Martians armed with poison gas and heat rays. Martians became synonymous with grotesque, threatening aliens, at least as far as the public was concerned. Scientists were more restrained, but still supported the idea that the planet might support relatively complex life forms. 
+<strong>C</strong> Then, in the late 1960s, rocket science changed our image of Mars forever. The US Mariner probes swept past Mars and sent back pictures, not of a world covered in vegetation, as many scientists still expected, but of vistas of cratered, arid deserts. Finally, in 1975, two huge US probes settled on the Martian surface and began a series of experiments aimed at pinpointing, once and for all, the existence of airbreathing organisms.None were found, for the Viking probes landed in areas as dead as the Sahara Desert. All that was sent back were images of a bleak, boulder-strewn terrain. Mars was declared officially dead - for a while. 
+<strong>D</strong> Since that time, two critical pieces of evidence have been found on Earth which support the idea that Mars has life. The first is known as ALH84001, a meteorite that was blasted into space when a large body struck Mars 15 million years ago and which spiralled across the solar system to crash into the Antarctic. Analysis carried out by NASA scientist Imre Friedmann showed that the meteorite contained elements identical to those found on Mars by the Viking probes, and revealed chains of crystals similar to those created by earthbound bacteria. Friedmann believes that these could only have been created by living organisms. Others, however, argue that the crystals could have been laid down by simple chemical processes. A second area of support for the idea that living organisms could survive Mars's harshness has been provided by the study of extremophiles, bacteria that have been found in increasingly hostile landscapes on Earth - acid lakes, for example, and volcanoes. 
+<strong>E</strong> In the past few years, astronomers have become convinced that the Martian surface, although hostile and arid today, was once lush and welcoming. Images sent back by recent probes such as the Mars Global Surveyor have revealed dried-up riverbeds and old estuaries. Rivers poured into ancient seas, it appears, and rain swept the sodden terrain. Then catastrophe struck. Mars lost its magnetic field several billion years ago, explains British astronomer Paul Murdin. 'Earth retained one, and it protects our atmosphere. Without that protection, Mars's gases and water boiled off.' That is why they are so different today. 
+<strong>F</strong> The discovery of signs of water on Mars has changed everything. Some researchers believe that water from underground reservoirs still gushes through Martian valleys as occasional flash floods bubble to the surface. In the 1990s, the Mars Odyssey probe began to map the chemical make-up of the Mars soil, and discovered that much of the ground in the southern hemisphere of Mars is mixed with large quantities of ice. And where there is ice, there is likely to be liquid water, probably underneath. 'There are huge underground reservoirs on Mars, says Marcello Coradini, head of planetary exploration for the European Space Agency. I am now convinced of that.' 
+<strong>G</strong> Current projects are hoping to clarify the question of the presence of water once and for all. These are aimed at conducting experiments to detect the presence of a substance called carbon 13 in soil and rock samples on Mars; this would be, according to some researchers, an unequivocal indicator of the presence of living organisms, past or present. 
+<strong>H</strong> But would the presence of a few Martian organisms alter our world view in any significant way? Professor Juan Perez Mercader of Madrid's Centre for Astrobiology in Spain believes that it would. 'For a start, we will be able to find out if Martian organisms have DNA, the golden molecule that controls the replication of earthly creatures.' If there is no DNA, that would show that Martian biology is quite unlike Earth's, and that on two planets, side by side in the same solar system, life evolved independently. IfDNA is located, it would mean that life on Mars and on Earth may spring from the same source. 'If organisms can pop up that easily, our chances of finding intelligent versions elsewhere in the universe will look extremely good,' Perez Mercader states. The discovery of any evidence of living organisms on Mars would also mean renewed pmpose for manned space flight projects. 
         `,
 
         questions: [
