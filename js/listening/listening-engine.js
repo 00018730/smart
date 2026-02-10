@@ -428,8 +428,8 @@ async function finishListening() {
 
   // Show UI
   showFinishModal({
-    title: "Listening Test Completed",
-    message: `You scored ${finalScore}. Continue to the Reading section.`,
+    title: "Listening Section Completed",
+    message: `Continue to the Reading section.`,
     buttonText: "Continue to Reading",
     onClick: () => {
       examLocked = false;

@@ -15,13 +15,11 @@ Write at least 150 words.
         `, // 📊 graph image path
 
         question: `
-The graph below shows the percentage of households with access
-to the internet between 2000 and 2020.
+The graph below shows the average number of people attending top-level football matches in three European countries from 1980 to 2004.
 
-Summarise the information by selecting and reporting the main features,
-and make comparisons where relevant.
+Summarise the information by selecting and reporting main features and give comparisons where relevant
         `,
-        image: "assets/mock1line.jpg"
+        image: "../assets/mock1writingtask1.jpg"
       },
 
       {
@@ -35,10 +33,9 @@ Write at least 250 words.
         `,
 
         question: `
-Some people believe that technology has made life easier,
-while others argue that it has made life more complicated.
+In many urban areas, planners tend to arrange shops, schools, offices, and homes in specific areas and separate them from one another. 
 
-Discuss both views and give your own opinion.
+Do the advantages of this trend outweigh its disadvantages?
         `
       }
     ]

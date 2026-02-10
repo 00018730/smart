@@ -102,20 +102,26 @@ function renderTask() {
   const task = test.tasks[currentTaskIndex];
   if (!task) return;
 
+  // We wrap the question in the .task-question class which we just styled
   taskPanel.innerHTML = `
     <div class="task-instruction">
       <h2>${task.title}</h2>
       <p>${task.instruction.replace(/\n/g, "<br>")}</p>
     </div>
-    <div class="task-question">${task.question.replace(/\n/g, "<br>")}</div>
+    
+    <div class="task-question">
+      ${task.question.replace(/\n/g, "<br>")}
+    </div>
+    
+    <div id="image-slot"></div>
   `;
 
   if (task.image) {
+    const imageSlot = document.getElementById("image-slot");
     const img = document.createElement("img");
     img.src = task.image;
-    img.style.width = "100%";
-    img.style.marginBottom = "20px";
-    taskPanel.appendChild(img);
+    img.className = "writing-task-image"; // Uses the image style from your CSS
+    imageSlot.appendChild(img);
   }
 
   writingBox.value = answers[task.id] || "";

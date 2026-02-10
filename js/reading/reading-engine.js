@@ -39,6 +39,7 @@ const nextBtn          = document.getElementById("nextBtn");
 const navigatorEl      = document.getElementById("questionNavigator"); // Ensure this ID exists in HTML
 const allQuestions = [];
 
+
 /* ===============================
     STATE
 ================================ */
@@ -56,10 +57,13 @@ const marked  = new Set();
     INIT
 ================================ */
 document.addEventListener("DOMContentLoaded", () => {
-  buildAllQuestions(); // Populate the question list for the navigator
+  buildAllQuestions(); 
   startTimer();
   renderPassage();
   renderNavigator();
+  
+  // Call this LAST to ensure DOM elements exist
+  setTimeout(initReadingDivider, 100); 
 });
 
 /* ===============================
@@ -113,6 +117,52 @@ function buildAllQuestions() {
     });
   });
 }
+
+/* ===============================
+    READING DIVIDER CONTROLLER
+================================ */
+function initReadingDivider() {
+    // UPDATED SELECTORS
+    const divider = document.querySelector(".reading-divider"); 
+    const leftPanel = document.querySelector(".task-panel");
+    const rightPanel = document.querySelector(".response-panel");
+    const container = document.querySelector(".reading-main");
+
+    if (!divider || !leftPanel || !rightPanel) {
+        console.warn("⚠️ Reading Divider elements not found");
+        return;
+    }
+
+    let isDragging = false;
+
+    divider.addEventListener("mousedown", () => {
+        isDragging = true;
+        document.body.style.cursor = "col-resize";
+        document.body.style.userSelect = "none";
+    });
+
+    document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+
+        const containerRect = container.getBoundingClientRect();
+        let offset = e.clientX - containerRect.left;
+        let percentage = (offset / containerRect.width) * 100;
+
+        if (percentage > 20 && percentage < 80) {
+            leftPanel.style.width = `${percentage}%`;
+            // If response-panel is flex: 1, it will auto-adjust
+        }
+    });
+
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+        document.body.style.cursor = "default";
+        document.body.style.userSelect = "auto";
+    });
+}
+
+// Call the function after DOM loads
+document.addEventListener("DOMContentLoaded", initReadingDivider);
 
 /* ===============================
     QUESTIONS RENDER (TYPES)

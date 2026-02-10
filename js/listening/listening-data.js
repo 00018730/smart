@@ -5,7 +5,7 @@
 window.LISTENING_TESTS = {
   listening_mock1: {
     title: "IELTS Listening Mock Test 1",
-    audio: "../assets/sample.mp3",
+    audio: "../assets/listening_mock1.mp3",
 
     parts: [
       /* =======================
