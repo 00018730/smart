@@ -1,11 +1,3 @@
 {
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
-  "rewrites": [
-    { "source": "/", "destination": "/frontend/home.html" },
-    { "source": "/(.*)", "destination": "/frontend/$1" }
-  ]
+  "cleanUrls": true
 }
