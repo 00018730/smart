@@ -16,7 +16,7 @@ window.LISTENING_TESTS = {
         instructions: {
           title: "Questions 1–10",
           task: "Complete the form below.",
-          rule: "Write NO MORE THAN TWO WORDS AND/ORA NUMBER for each answer."
+          rule: "Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer."
         },
 
         questions: [

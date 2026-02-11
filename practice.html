@@ -15,13 +15,31 @@
       <span>SMART LEARNING<br />CENTER</span>
     </div>
 
-    <nav class="nav">
-      <a class="active" href="#">Home</a>
-      <a href="#">Listening</a>
-      <a href="#">Reading</a>
-      <a href="#">Writing</a>
-      <a href="#">Speaking</a>
-    </nav>
+    <div class="skills-container">
+    <button class="nav-btn home-link" onclick="location.href='index.html'">
+        <span class="icon">⌂</span> Home
+    </button>
+
+    <button class="skill-btn" onclick="location.href='pages/practice-selection.html?type=listening'">
+        Listening
+    </button>
+    <button class="skill-btn" onclick="location.href='pages/practice-selection.html?type=reading'">
+        Reading
+    </button>
+    <button class="skill-btn disabled">
+        Writing (Soon)
+    </button>
+    <button class="skill-btn disabled">
+        Speaking (Soon)
+    </button>
+</div>
+
+<script>
+  function goToSelection(type) {
+    // Redirects to selection page with the skill type as a parameter
+    window.location.href = `../pages/practice-selection.html?type=${type}`;
+  }
+</script>
   </header>
 
   <!-- HERO -->
@@ -60,6 +78,7 @@
       window.location.href = "pages/select-test.html";
     });
 </script>
+
 
 
 </body>

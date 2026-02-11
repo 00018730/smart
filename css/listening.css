@@ -451,3 +451,57 @@ main {
   font-weight: 700;
   margin-right: 6px;
 }
+
+/* Map Container Frame */
+.map-wrap {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: inline-block; /* Wraps tightly around the image */
+    width: 100%;
+    max-width: 700px;
+    margin: 25px auto !important;
+}
+
+.map-wrap img {
+    border-radius: 6px;
+    display: block;
+}
+
+/* Modern Dropdown Styling */
+.map-dropdown {
+    appearance: none; /* Removes default arrow */
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 6px 35px 6px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #002b2a;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.map-dropdown:hover {
+    border-color: #adb5bd;
+    background-color: #ffffff;
+}
+
+.map-dropdown:focus {
+    border-color: #009472;
+    box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.2);
+}
+
+/* Aligning the question row */
+.dropdown-question p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+}

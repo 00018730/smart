@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IELTS Listening Practice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/listening.css" />
+</head>
+<body>
+
+  <header class="listening-top">
+    <div class="test-info">
+        <h2 id="headerTitle" class="practice-test-title">Cambridge Practice</h2>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+
+    <div class="audio-progress-wrapper">
+      <div id="audioProgress" class="audio-progress-bar"></div>
+    </div>
+
+    <div class="parts-bar">
+      <div class="sections">
+        </div>
+    </div>
+
+    <div id="timer" class="listening-timer hidden">02:00</div>
+  </header>
+
+  <main class="listening-main">
+    <section id="instructions" class="instructions"></section>
+    <section id="questionsBox" class="questions-box"></section>
+  </main>
+
+  <footer class="listening-bottom">
+    <div id="questionNavigator" class="navigator">
+      </div>
+
+    <button id="submitBtn" class="nav-btn primary submit-btn">Submit Test</button>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script type="module">
+    import { supabase } from '../js/supabase/client.js';
+    window.supabaseClient = supabase;
+  </script>
+
+  <script src="../js/listening/listening-practice.js"></script>
+  
+  <div id="finishOverlay" class="finish-overlay hidden">
+    <div class="finish-modal">
+      <h2 id="finishTitle">Section Completed</h2>
+      <p id="finishMessage">Your results have been recorded.</p>
+      <button id="finishBtn">Back to Practice Home</button>
+    </div>
+  </div>
+
+</body>
+</html>

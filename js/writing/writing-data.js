@@ -1,7 +1,7 @@
 window.WRITING_TESTS = {
   writing_mock1: {
     id: "writing_mock1",
-    timeLimit: 60, // 60 minutes
+    timeLimit: 3600, // 60 minutes
 
     tasks: [
       {

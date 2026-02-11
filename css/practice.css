@@ -147,3 +147,62 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
+
+/* Position the entire group in the top-right corner */
+.skills-container {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+/* Base style for smaller buttons */
+.skill-btn, .nav-btn {
+    padding: 8px 15px; /* Smaller padding */
+    font-size: 13px;   /* Smaller font */
+    font-weight: 600;
+    border-radius: 6px; /* Slightly sharper corners for smaller size */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Skill Buttons: Solid Main Color */
+.skill-btn {
+    background-color: #009472;
+    color: white;
+}
+
+.skill-btn:hover {
+    background-color: #007a5e;
+    transform: translateY(-1px);
+}
+
+/* Home Button: Outlined Style */
+.home-link {
+    background-color: #ffffff;
+    color: #009472;
+    border: 1.5px solid #009472;
+}
+
+.home-link:hover {
+    background-color: #f0faf7;
+    transform: translateY(-1px);
+}
+
+/* Icon adjustment for small buttons */
+.home-link .icon {
+    font-size: 16px;
+}
+
+/* Disabled State */
+.skill-btn.disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: not-allowed;
+}

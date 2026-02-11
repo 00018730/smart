@@ -14,6 +14,7 @@ if (!window.LISTENING_TESTS) {
 const params = new URLSearchParams(window.location.search);
 const testId = params.get("test");
 
+
 if (!testId || !LISTENING_TESTS[testId]) {
   document.body.innerHTML = `
     <div class="finish-screen">

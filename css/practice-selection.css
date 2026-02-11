@@ -1,0 +1,161 @@
+/* ================= GLOBAL & CONTAINER ================= */
+body {
+    background-color: #f7f9f8;
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.selection-section {
+    padding: 100px 0 60px;
+    min-height: 100vh;
+}
+
+.section-title {
+    text-align: center;
+    color: #009472;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* ================= GRID LAYOUT ================= */
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* ================= CARD DESIGN ================= */
+.practice-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.practice-card:hover {
+    transform: translateY(-8px);
+    border-color: #009472;
+    box-shadow: 0 12px 24px rgba(0, 148, 114, 0.12);
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.practice-card h3 {
+    margin: 0;
+    color: #002b2a;
+    font-size: 18px;
+}
+
+.practice-card p {
+    margin: 8px 0 0;
+    font-size: 14px;
+    color: #888;
+}
+
+/* ================= FOOTER & BUTTONS ================= */
+.navigation-footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.back-btn {
+    background: white;
+    border: 2px solid #009472;
+    color: #009472;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    background: #009472;
+    color: white;
+}
+
+.hidden { display: none; }
+
+/* Pulse Animation */
+@keyframes cardPulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 148, 114, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 148, 114, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 148, 114, 0); }
+}
+
+.practice-card:active {
+    transform: scale(0.95);
+    animation: cardPulse 0.5s forwards;
+}
+
+.practice-card:hover .card-icon {
+    transform: scale(1.2) rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+/* Styling for the Main Menu redirect */
+.home-back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #009472; /* Your main green color */
+    color: #ffffff; /* White text */
+    border: 2px solid #009472;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 1001; /* Stay above everything else */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect: Inverse colors or lighten */
+.home-back-btn:hover {
+    background-color: #ffffff;
+    color: #009472;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Active state: small 'press' effect */
+.home-back-btn:active {
+    transform: translateY(0);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .home-back-btn {
+        top: 10px;
+        left: 10px;
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+}

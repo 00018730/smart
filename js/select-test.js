@@ -6,4 +6,3 @@ document.querySelectorAll(".test-card").forEach(card => {
     window.location.href = `../pages/login.html?mock=${mock}`;
   };
 });
-
