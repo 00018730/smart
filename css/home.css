@@ -730,56 +730,39 @@ body {
 
     /* 2. Modern Boxed Header */
     .site-header {
-        padding: 10px 0;
+        padding: 15px 0;
         background: #002b2a;
+        margin-bottom: 60px !important; /* Increased room for translations */
     }
 
     .header-inner {
         flex-direction: column;
-        gap: 12px;
+        gap: 15px;
         padding: 0 15px;
     }
 
-    /* Modern Box for Brand/Logo */
+    /* Updated Brand Box: Now contains the Lang Switcher inside */
     .brand {
         background: rgba(255, 255, 255, 0.05);
-        padding: 12px;
+        padding: 10px 15px;
         border-radius: 15px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         width: 100%;
-        justify-content: center;
         box-sizing: border-box;
+        display: flex; /* Flex to align name and flag */
+        align-items: center;
+        justify-content: space-between; /* Pushes name to left, switcher to right */
     }
 
-    /* Modern Box for Nav */
-    .main-nav {
-        background: rgba(255, 255, 255, 0.03);
-        padding: 10px;
-        border-radius: 15px;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        box-sizing: border-box;
-    }
-
-    .main-nav a {
-        font-size: 13px;
-        padding: 5px 8px;
-    }
-
-    /* 3. Language Switcher (Visible & Accessible) */
+    /* 3. Integrated Language Switcher */
     .lang-switcher {
-        position: absolute; /* Keeps it in the corner of the header */
-        top: 15px;
-        right: 15px;
+        position: static; /* Removed absolute to put it inside the brand box */
         z-index: 1000;
     }
 
     .lang-current {
-        width: 40px;
-        height: 40px;
+        width: 35px; /* Slightly smaller to fit nicely in the box */
+        height: 35px;
         border-radius: 50%;
         border: 2px solid #009472;
         padding: 0;
@@ -789,15 +772,59 @@ body {
         justify-content: center;
     }
 
-    .lang-current img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    /* Fix dropdown position to appear below the brand box */
+    .lang-dropdown {
+        top: 100%;
+        right: 0;
+        margin-top: 10px;
     }
 
-    /* 4. Student Carousel Fix (No more leaks) */
+    /* 4. Modern Boxed Nav (Stacked) */
+    .main-nav {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 15px;
+        border-radius: 15px;
+        width: 100%;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        gap: 12px;
+        box-sizing: border-box;
+    }
+
+    .main-nav a {
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+
+    /* 5. Hero Adjustments */
+    .hero {
+        padding-top: 30px; /* Added more room from top */
+    }
+
+    .hero h1 { 
+        font-size: 24px;
+        margin-top: 15px;
+        line-height: 1.4;
+        padding: 0 10px; 
+        text-align: center;
+    }
+
+    /* 6. Practice Button (Mobile Safety) */
+    #practiceBtn {
+        padding: 12px;
+        font-size: 14px;
+        position: relative; 
+        width: 95%; 
+        margin: 5px auto 0 auto;
+        white-space: nowrap; 
+        z-index: 10;
+        background-color: #007a5d; /* Slightly darker to distinguish */
+    }
+
+    /* 7. Student Carousel (Keeping the good leak-fix) */
     .students-section {
-        overflow: hidden; /* Strict clip */
+        overflow: hidden;
         width: 100%;
     }
 
@@ -807,13 +834,11 @@ body {
     }
 
     .student-card {
-        flex: 0 0 85vw !important; /* Force width */
+        flex: 0 0 85vw !important;
         min-width: 85vw !important;
         max-width: 85vw !important;
         flex-direction: column;
         height: auto;
-        filter: blur(0); /* On mobile, blur can be annoying; optional to keep */
-        opacity: 1;
         transform: scale(1) !important;
     }
 
@@ -822,41 +847,19 @@ body {
         min-height: 200px;
     }
 
-    .student-info {
-        width: 100%;
-        padding: 15px;
-        text-align: center;
+    /* 8. Notice Alert */
+    .mobile-notice {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ff9800;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 10px;
+        font-weight: bold;
+        z-index: 9999;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        display: none;
     }
-
-    /* 5. Hero & About adjustments */
-    .hero h1 { font-size: 24px; }
-    
-    .course-grid-detailed {
-        grid-template-columns: 1fr;
-        padding: 0 10px;
-    }
-
-    /* Practice Button as a full-width action */
-    #practiceBtn {
-        width: 100%;
-        padding: 12px;
-        font-size: 14px;
-        margin-top: 5px;
-    }
-
-    /* Styling for the alert message if you use a div instead of alert() */
-.mobile-notice {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ff9800; /* Warning orange */
-    color: white;
-    padding: 12px 24px;
-    border-radius: 10px;
-    font-weight: bold;
-    z-index: 9999;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    display: none; /* Hidden by default */
-}
 }

@@ -117,8 +117,8 @@ const translations = {
     studentsSubtitle: "Посмотрите на результаты наших студентов и вдохновитесь",
     overallScore: "Общий балл IELTS",
     cefrLevel: "Уровень CEFR",
-    student1Testimonial: "Курс IELTS в Smart просто супер! Я получила желаемый балл благодаря учителю.",
-    student2Testimonial: "Я значительно улучшил аудирование. Пробные тесты и атмосфера отличные.",
+    student1Testimonial: "Курс IELTS в Smart просто супер! Я получил желаемый балл благодаря учителю.",
+    student2Testimonial: "Я значительно улучшил Listening. Пробные тесты и атмосфера отличные.",
     student3Testimonial: "Благодаря интенсивной практике я получила 8.0 по чтению и говорению.",
     student4Testimonial: "Лучшее место для подготовки к IELTS в городе! Рекомендую."
   }
