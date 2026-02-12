@@ -717,3 +717,106 @@ body {
 .blue .course-features li::before { color: #2196f3; }
 .orange .course-features li::before { color: #ff9800; }
 .green .course-features li::before { color: #4caf50; }
+
+
+/* ========== MOBILE RESPONSIVE STYLES ========== */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Reset Global Container */
+    .container {
+        padding: 0 20px; /* Gives sides some breathing room */
+        width: 100%;
+    }
+
+    /* 2. Fix the Header & Nav */
+    .header-inner {
+        flex-direction: column; /* Stacks logo and nav */
+        gap: 15px;
+        text-align: center;
+    }
+
+    .main-nav {
+        flex-wrap: wrap; /* Allows links to wrap if they are too long */
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .main-nav a {
+        font-size: 14px;
+    }
+
+    /* 3. Fix the Hero Section */
+    .hero {
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 28px; /* Shrinks the giant text */
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    /* 4. Course Cards: Stack them! */
+    .course-grid-detailed {
+        grid-template-columns: 1fr; /* Changes 3 columns to 1 */
+        gap: 20px;
+    }
+
+    .course-column {
+        padding: 25px;
+    }
+
+    /* 5. Student Cards: Shrink and Stack Content */
+    .student-card {
+        flex: 0 0 85vw; /* Each card takes up 85% of phone width */
+        min-width: 85vw;
+        flex-direction: column; /* Image on top, text on bottom */
+        height: auto;
+    }
+
+    .trf-wrapper {
+        width: 100%; /* Image box takes full width */
+        min-height: 220px;
+    }
+
+    .student-info {
+        width: 100%; /* Text box takes full width */
+        padding: 20px;
+    }
+
+    .student-info h3 {
+        font-size: 18px;
+    }
+
+    .testimonial {
+        font-size: 13px;
+    }
+
+    /* Keep badges side-by-side but smaller */
+    .score-badges {
+        gap: 8px;
+    }
+
+    .badge {
+        min-width: 70px;
+        padding: 10px;
+    }
+    
+    .badge .value {
+        font-size: 20px;
+    }
+
+    /* 6. About Section */
+    .about-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-visual {
+        display: none; /* Often better to hide the empty visual box on mobile to save space */
+    }
+}
