@@ -44,7 +44,7 @@ const translations = {
   },
 
   uz: {
-    centerName: "Smart O‘quv Markazi",
+    centerName: "Smart Learning Center",
     navHome: "Bosh sahifa",
     navCourses: "Kurslar",
     navTeachers: "O'qituvchilar",
@@ -84,7 +84,7 @@ const translations = {
   },
 
   ru: {
-    centerName: "Учебный Центр Smart",
+    centerName: "Smart Learning Center",
     navHome: "Главная",
     navCourses: "Курсы",
     navTeachers: "Учителя",

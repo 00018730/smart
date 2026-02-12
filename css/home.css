@@ -718,119 +718,138 @@ body {
 .orange .course-features li::before { color: #ff9800; }
 .green .course-features li::before { color: #4caf50; }
 
-/* ========== MODERN MOBILE RESPONSIVE STYLES ========== */
+/* ========== CLEAN & STABLE MOBILE LAYOUT ========== */
 @media screen and (max-width: 768px) {
     
-    /* 1. Kill the Side-Scroll */
+    /* 1. Reset Global Container */
     html, body {
         overflow-x: hidden;
         width: 100%;
-        position: relative;
+        margin: 0;
+        padding: 0;
     }
 
-    /* 2. Modern Boxed Header */
+    /* 2. Fix the Header (No more overlapping boxes) */
     .site-header {
+        position: relative;
         padding: 15px 0;
         background: #002b2a;
-        margin-bottom: 60px !important; /* Increased room for translations */
+        margin-bottom: 20px !important;
     }
 
     .header-inner {
+        display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 15px;
         padding: 0 15px;
     }
 
-    /* Updated Brand Box: Now contains the Lang Switcher inside */
+    /* Brand Box: Forced to stay at the top */
     .brand {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 10px 15px;
-        border-radius: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        width: 100%;
-        box-sizing: border-box;
-        display: flex; /* Flex to align name and flag */
+        display: flex;
+        justify-content: space-between; 
         align-items: center;
-        justify-content: space-between; /* Pushes name to left, switcher to right */
+        width: 100%;
+        padding: 12px 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        box-sizing: border-box;
     }
 
-    /* 3. Integrated Language Switcher */
+    .brand-name {
+        font-size: 16px;
+        margin: 0;
+        color: #009472;
+    }
+
+    /* Language Switcher: Locked inside the Brand Box */
     .lang-switcher {
-        position: static; /* Removed absolute to put it inside the brand box */
-        z-index: 1000;
+        position: static; 
+        margin: 0;
     }
 
     .lang-current {
-        width: 35px; /* Slightly smaller to fit nicely in the box */
-        height: 35px;
-        border-radius: 50%;
+        width: 32px;
+        height: 32px;
         border: 2px solid #009472;
-        padding: 0;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
-    /* Fix dropdown position to appear below the brand box */
-    .lang-dropdown {
-        top: 100%;
-        right: 0;
-        margin-top: 10px;
-    }
-
-    /* 4. Modern Boxed Nav (Stacked) */
+    /* 3. Navigation: Vertical stack to prevent link collision */
     .main-nav {
-        background: rgba(255, 255, 255, 0.03);
-        padding: 15px;
-        border-radius: 15px;
-        width: 100%;
         display: flex;
         flex-direction: column; 
-        align-items: center;
-        gap: 12px;
-        box-sizing: border-box;
+        width: 100%;
+        gap: 8px;
+        padding: 0;
+        background: none;
     }
 
     .main-nav a {
-        font-size: 14px;
-        padding: 5px 8px;
-    }
-
-    /* 5. Hero Adjustments */
-    .hero {
-        padding-top: 30px; /* Added more room from top */
-    }
-
-    .hero h1 { 
-        font-size: 24px;
-        margin-top: 15px;
-        line-height: 1.4;
-        padding: 0 10px; 
-        text-align: center;
-    }
-
-    /* 6. Practice Button (Mobile Safety) */
-    #practiceBtn {
+        background: rgba(255, 255, 255, 0.03);
         padding: 12px;
+        border-radius: 8px;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
         font-size: 14px;
-        position: relative; 
-        width: 95%; 
-        margin: 5px auto 0 auto;
-        white-space: nowrap; 
-        z-index: 10;
-        background-color: #007a5d; /* Slightly darker to distinguish */
+        text-decoration: none;
+        color: white;
     }
 
-    /* 7. Student Carousel (Keeping the good leak-fix) */
+    /* 4. Practice Button: Forced out of the Hero area */
+    #practiceBtn {
+        position: static !important; 
+        display: block !important;
+        width: 100% !important;
+        margin: 10px 0 0 0 !important;
+        padding: 14px !important;
+        background-color: #007a5d !important;
+        border-radius: 8px;
+        font-weight: bold;
+        box-shadow: none;
+    }
+
+    /* 5. Hero Section: Clean spacing for headlines */
+    .hero {
+        padding: 30px 20px !important;
+        text-align: center;
+        display: block; /* Ensure it's a block, not flex */
+    }
+
+    .hero h1 {
+        font-size: 22px !important;
+        line-height: 1.3 !important;
+        margin: 0 0 15px 0 !important;
+        padding: 0 !important;
+        width: 100%;
+    }
+
+    .hero p {
+        font-size: 15px;
+        margin-bottom: 25px;
+        line-height: 1.5;
+        color: #ccc;
+    }
+
+    /* Enroll Button: Large tap target */
+    .enroll-btn {
+        width: 100%;
+        padding: 16px !important;
+        font-size: 16px !important;
+        border-radius: 30px;
+    }
+
+    /* 6. Student Carousel (Leak Prevention) */
     .students-section {
         overflow: hidden;
         width: 100%;
     }
 
     .students-scroll-container {
-        padding: 30px 0 !important;
-        gap: 15px;
+        padding: 20px 0 !important;
+        display: flex;
     }
 
     .student-card {
@@ -839,27 +858,6 @@ body {
         max-width: 85vw !important;
         flex-direction: column;
         height: auto;
-        transform: scale(1) !important;
-    }
-
-    .trf-wrapper {
-        width: 100%;
-        min-height: 200px;
-    }
-
-    /* 8. Notice Alert */
-    .mobile-notice {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #ff9800;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 10px;
-        font-weight: bold;
-        z-index: 9999;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        display: none;
+        margin: 0 10px;
     }
 }
