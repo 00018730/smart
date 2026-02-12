@@ -22,7 +22,7 @@ Australia's attempt to control pests has itself become a pest
         questions: [
           {
   type: "instruction",
-  text: "Questions 1–3\nComplete the sentences below.\nWrite ONE WORD ONLY from the passage for each answer. "
+  text: "Questions 1–7\nComplete the sentences below.\nWrite ONE WORD ONLY from the passage for each answer. "
 },
 {
   type: "title",
@@ -402,7 +402,7 @@ An iconic chain store in New Zealand reaches a milestone
   },
   {
     type: "instruction",
-    text: "Questions 3 7-40 \nDo the following statements agree with the claims of the writer? \nWrite: \nYES if the statement agrees \nNO if the statement contradicts the writer \nNOT GIVEN if it is impossible to say "
+    text: "Questions 37-40 \nDo the following statements agree with the claims of the writer? \nWrite: \nYES if the statement agrees \nNO if the statement contradicts the writer \nNOT GIVEN if it is impossible to say "
   },
   {
   id: 37,

@@ -8,75 +8,66 @@
 </head>
 <body>
 
-<!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="container header-inner">
     <div class="brand">
-  <img
-    src="assets/logogreen.png"
-    alt="Smart Learning Center Logo"
-    class="brand-logo"
-  />
-  <span class="brand-name">Smart Learning Center</span>
-</div>
+      <img src="assets/logogreen.png" alt="Smart Learning Center Logo" class="brand-logo" />
+      <span class="brand-name" data-i18n="centerName">Smart Learning Center</span>
+    </div>
 
     <nav class="main-nav">
-      <a href="#">Home</a>
-      <a href="#">Courses</a>
-      <a href="#">Teachers</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-      <button id="practiceBtn" class="btn-primary">
-  Practice Tests
-</button>
+      <a href="#" data-i18n="navHome">Home</a>
+      <a href="#" data-i18n="navCourses">Courses</a>
+      <a href="#" data-i18n="navTeachers">Teachers</a>
+      <a href="#" data-i18n="navAbout">About</a>
+      <a href="#" data-i18n="navContact">Contact</a>
+      <button id="practiceBtn" class="btn-primary" data-i18n="practiceBtn">Practice Tests</button>
     </nav>
 
     <div class="lang-switcher">
-  <button class="lang-current" id="langToggle">
-  <img id="currentFlag" src="assets/flags/uk.jpg" alt="English" />
-</button>
+      <button class="lang-current" id="langToggle">
+        <img id="currentFlag" src="assets/flags/uk.jpg" alt="English" />
+      </button>
 
-<div class="lang-dropdown" id="langDropdown">
-  <button data-lang="en">
-    <img src="assets/flags/uk.jpg" alt="English" /> English
-  </button>
-  <button data-lang="uz">
-    <img src="assets/flags/uzb.jpg" alt="Uzbek" /> Uzbek
-  </button>
-  <button data-lang="ru">
-    <img src="assets/flags/ru.jpg" alt="Russian" /> Russian
-  </button>
-</div>
-</div>
+      <div class="lang-dropdown" id="langDropdown">
+        <button data-lang="en">
+          <img src="assets/flags/uk.jpg" alt="English" /> English
+        </button>
+        <button data-lang="uz">
+          <img src="assets/flags/uzb.jpg" alt="Uzbek" /> Uzbek
+        </button>
+        <button data-lang="ru">
+          <img src="assets/flags/ru.jpg" alt="Russian" /> Russian
+        </button>
+      </div>
+    </div>
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
 <section class="hero">
   <div class="container hero-inner">
-    <h1>
+    <h1 data-i18n="heroTitle">
       Learn English.<br />
       Build Confidence.<br />
       Achieve Results.
     </h1>
-    <p>
+    <p data-i18n="heroText">
       IELTS preparation and English courses designed for real progress —
       not memorization.
     </p>
     <div class="hero-buttons">
-      <button class="enroll-btn" onclick="window.location.href='pages/register.html'">
-  Enroll Now
-</button>
+      <button class="enroll-btn" onclick="window.location.href='pages/register.html'" data-i18n="enrollBtn">
+        Enroll Now
+      </button>
     </div>
   </div>
 </section>
 
-<!-- ================= ABOUT ================= -->
 <section class="about">
   <div class="container about-inner">
     <div class="about-text">
-      <h2>About Smart Learning Center</h2>
-      <p>
+      <h2 data-i18n="aboutTitle">About Smart Learning Center</h2>
+      <p data-i18n="aboutText">
         We are a modern learning center focused on helping students achieve
         real English fluency and strong IELTS results through structured
         lessons, expert guidance, and consistent practice.
@@ -88,73 +79,157 @@
   </div>
 </section>
 
-<!-- ================= COURSES ================= -->
-<section class="courses">
+<section class="courses-detailed">
   <div class="container">
-    <h2 class="section-title">Our Courses</h2>
+    <h2 class="section-title" data-i18n="coursesTitle">Our courses</h2>
+    <p class="section-subtitle" data-i18n="coursesSubtitle">Discover the courses available at Smart Learning Center and choose the one that suits you best</p>
+    
+    <div class="course-grid-detailed">
+      <div class="course-column blue">
+        <div class="course-header">
+          <div class="icon-circle"><i class="fas fa-graduation-cap"></i></div>
+          <h3 data-i18n="courseGE">General English</h3>
+        </div>
+        <ul class="course-features">
+          <li data-i18n="courseGE_1">The course spans 4 levels (Beginner to Intermediate), each lasting 3 months.</li>
+          <li data-i18n="courseGE_2">Classes are held 3 times a week for 80 minutes.</li>
+          <li data-i18n="courseGE_3">Free textbooks and a custom workbook are provided.</li>
+        </ul>
+      </div>
 
-    <div class="course-grid">
-      <div class="course-card">IELTS Preparation</div>
-      <div class="course-card">General English</div>
-      <div class="course-card">Speaking & Fluency</div>
-      <div class="course-card">Writing Skills</div>
-      <div class="course-card">Academic English</div>
-      <div class="course-card">Mock Exams</div>
+      <div class="course-column orange">
+        <div class="course-header">
+          <div class="icon-circle"><i class="fas fa-book"></i></div>
+          <h3 data-i18n="courseI1">IELTS Level 1</h3>
+        </div>
+        <ul class="course-features">
+          <li data-i18n="courseI1_1">Gain basic knowledge about the IELTS format.</li>
+          <li data-i18n="courseI1_2">Learn strategies to effectively tackle the test.</li>
+          <li data-i18n="courseI1_3">Participate in mock tests to simulate real exams.</li>
+        </ul>
+      </div>
+
+      <div class="course-column green">
+        <div class="course-header">
+          <div class="icon-circle"><i class="fas fa-certificate"></i></div>
+          <h3 data-i18n="courseI2">IELTS Level 2</h3>
+        </div>
+        <ul class="course-features">
+          <li data-i18n="courseI2_1">Learn about IELTS in more detail.</li>
+          <li data-i18n="courseI2_2">More comprehensive strategies for higher scores.</li>
+          <li data-i18n="courseI2_3">Every student receives books at no additional cost.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= TEACHERS ================= -->
 <section class="teachers">
   <div class="container">
-    <h2 class="section-title">Our Teachers</h2>
-
+    <h2 class="section-title" data-i18n="navTeachers">Our Teachers</h2>
     <div class="carousel-container">
       <div class="teacher-carousel" id="teacherCarousel">
         <div class="teacher-card active">
-          <div class="teacher-photo">
-             <img src="assets/teacher1.jpg" alt="Teacher"> </div>
+          <div class="teacher-photo"><img src="assets/teacher1.jpg" alt="Teacher"></div>
           <h3>Abdurahmon Nasriddinov</h3>
           <p>IELTS 8.5</p>
           <p>Speaking 9</p>
         </div>
-
         <div class="teacher-card">
-          <div class="teacher-photo">
-             <img src="assets/teacher2.jpg" alt="Teacher">
-          </div>
+          <div class="teacher-photo"><img src="assets/teacher2.jpg" alt="Teacher"></div>
           <h3>Emma Wilson</h3>
           <p>English Teacher</p>
         </div>
-
         <div class="teacher-card">
-          <div class="teacher-photo">
-             <img src="assets/teacher3.jpg" alt="Teacher">
-          </div>
+          <div class="teacher-photo"><img src="assets/teacher3.jpg" alt="Teacher"></div>
           <h3>Alex Turner</h3>
           <p>Speaking Coach</p>
         </div>
       </div>
-
       <button class="nav-btn prev" id="prevBtn">❮</button>
       <button class="nav-btn next" id="nextBtn">❯</button>
     </div>
   </div>
 </section>
 
-<!-- ================= PRACTICE ================= -->
+<section class="students-section">
+  <div class="container"><h2 class="section-title" data-i18n="studentsTitle">Our students</h2><p class="section-subtitle" data-i18n="studentsSubtitle">Discover the results of our students and get motivated</p></div>
+    <div class="scroll-wrapper">
+    <div class="students-scroll-container">
+        <div class="student-card">
+            <div class="trf-wrapper">
+                <img src="assets/results/student1.jpeg" alt="IELTS Result" class="trf-img">
+                <div class="trf-peel"></div>
+            </div>
+            <div class="student-info">
+                <h3>Abdurashid Nasriddinov</h3>
+                <p class="testimonial" data-i18n="student1Testimonial">"The course at Cambridge is amazing! I got my desired score."</p>
+                <div class="score-badges">
+                    <div class="badge score-main"><span class="label" data-i18n="overallScore">Overall</span><span class="value">7.5</span></div>
+                    <div class="badge score-level"><span class="label" data-i18n="cefrLevel">CEFR</span><span class="value">C1</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="student-card">
+            <div class="trf-wrapper">
+                <img src="assets/results/student3.jpeg" alt="IELTS Result" class="trf-img">
+                <div class="trf-peel"></div>
+            </div>
+            <div class="student-info">
+                <h3>Olloyor Maqsudov</h3>
+                <p class="testimonial" data-i18n="student2Testimonial">"I improved my listening and reading significantly. The mock tests are great."</p>
+                <div class="score-badges">
+                    <div class="badge score-main"><span class="label" data-i18n="overallScore">Overall</span><span class="value">7.5</span></div>
+                    <div class="badge score-level"><span class="label" data-i18n="cefrLevel">CEFR</span><span class="value">C1</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="student-card">
+            <div class="trf-wrapper">
+                <img src="assets/results/student3.jpg" alt="IELTS Result" class="trf-img">
+                <div class="trf-peel"></div>
+            </div>
+            <div class="student-info">
+                <h3>Karimova Lola</h3>
+                <p class="testimonial" data-i18n="student3Testimonial">"Thanks to the intensive practice, I achieved a band 8.0 in Reading."</p>
+                <div class="score-badges">
+                    <div class="badge score-main"><span class="label" data-i18n="overallScore">Overall</span><span class="value">8.0</span></div>
+                    <div class="badge score-level"><span class="label" data-i18n="cefrLevel">CEFR</span><span class="value">C1</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="student-card">
+            <div class="trf-wrapper">
+                <img src="assets/results/student4.jpg" alt="IELTS Result" class="trf-img">
+                <div class="trf-peel"></div>
+            </div>
+            <div class="student-info">
+                <h3>Islamov Bekzod</h3>
+                <p class="testimonial" data-i18n="student4Testimonial">"The best environment for IELTS preparation in the city!"</p>
+                <div class="score-badges">
+                    <div class="badge score-main"><span class="label" data-i18n="overallScore">Overall</span><span class="value">7.0</span></div>
+                    <div class="badge score-level"><span class="label" data-i18n="cefrLevel">CEFR</span><span class="value">B2</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
 <section class="practice">
   <div class="container practice-inner">
-    <h2>Practice with Real IELTS Mock Tests</h2>
-    <p>
+    <h2 data-i18n="practiceBtn">Practice with Real IELTS Mock Tests</h2>
+    <p data-i18n="heroText">
       Experience full IELTS-style tests with timing, question formats,
       and instant feedback.
     </p>
-    <button class="btn-primary">Go to Practice Platform</button>
+    <button class="btn-primary" data-i18n="practiceBtn">Go to Practice Platform</button>
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="container footer-inner">
     <p>© 2026 Smart Learning Center. All rights reserved.</p>
@@ -162,21 +237,63 @@
 </footer>
 
 <script src="js/carousel.js"></script>
-
 <script src="js/lang.js"></script>
+
 <div id="pageTransition" class="page-transition"></div>
 <script>
+  // Your existing Practice Button and Scroll Logic remains the same...
   const practiceBtn = document.getElementById("practiceBtn");
   const transition = document.getElementById("pageTransition");
 
   practiceBtn.addEventListener("click", () => {
     transition.classList.add("active");
-
-    setTimeout(() => {
-      window.location.href = "practice.html";
-      // 👆 change to your real entry file
-    }, 350);
+    setTimeout(() => { window.location.href = "practice.html"; }, 350);
   });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector(".students-scroll-container");
+    const originalCards = Array.from(container.children);
+    
+    originalCards.forEach(card => {
+        const startClone = card.cloneNode(true);
+        const endClone = card.cloneNode(true);
+        container.appendChild(endClone);
+        container.insertBefore(startClone, container.firstChild);
+    });
+
+    const cardTotalWidth = originalCards[0].offsetWidth + 30;
+    const middleOffset = cardTotalWidth * originalCards.length;
+    container.scrollLeft = middleOffset;
+
+    const updateFocus = () => {
+        const containerRect = container.getBoundingClientRect();
+        const containerCenter = containerRect.left + containerRect.width / 2;
+        const allCards = container.querySelectorAll(".student-card");
+        let closestCard = null;
+        let minDistance = Infinity;
+
+        allCards.forEach(card => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            const distance = Math.abs(containerCenter - cardCenter);
+            card.classList.remove("is-focused");
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestCard = card;
+            }
+        });
+        if (closestCard) { closestCard.classList.add("is-focused"); }
+    };
+
+    container.addEventListener("scroll", () => {
+        const scrollPos = container.scrollLeft;
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        if (scrollPos <= 0) { container.scrollLeft = middleOffset; } 
+        else if (scrollPos >= maxScroll - 1) { container.scrollLeft = middleOffset; }
+        updateFocus();
+    });
+    setTimeout(updateFocus, 100);
+});
 </script>
 
 </body>
