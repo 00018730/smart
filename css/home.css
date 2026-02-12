@@ -718,105 +718,145 @@ body {
 .orange .course-features li::before { color: #ff9800; }
 .green .course-features li::before { color: #4caf50; }
 
-
-/* ========== MOBILE RESPONSIVE STYLES ========== */
+/* ========== MODERN MOBILE RESPONSIVE STYLES ========== */
 @media screen and (max-width: 768px) {
     
-    /* 1. Reset Global Container */
-    .container {
-        padding: 0 20px; /* Gives sides some breathing room */
+    /* 1. Kill the Side-Scroll */
+    html, body {
+        overflow-x: hidden;
         width: 100%;
+        position: relative;
     }
 
-    /* 2. Fix the Header & Nav */
+    /* 2. Modern Boxed Header */
+    .site-header {
+        padding: 10px 0;
+        background: #002b2a;
+    }
+
     .header-inner {
-        flex-direction: column; /* Stacks logo and nav */
-        gap: 15px;
-        text-align: center;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 15px;
     }
 
-    .main-nav {
-        flex-wrap: wrap; /* Allows links to wrap if they are too long */
+    /* Modern Box for Brand/Logo */
+    .brand {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 12px;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
         justify-content: center;
-        gap: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Modern Box for Nav */
+    .main-nav {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 10px;
+        border-radius: 15px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        box-sizing: border-box;
     }
 
     .main-nav a {
-        font-size: 14px;
+        font-size: 13px;
+        padding: 5px 8px;
     }
 
-    /* 3. Fix the Hero Section */
-    .hero {
-        padding: 60px 0;
-        text-align: center;
+    /* 3. Language Switcher (Visible & Accessible) */
+    .lang-switcher {
+        position: absolute; /* Keeps it in the corner of the header */
+        top: 15px;
+        right: 15px;
+        z-index: 1000;
     }
 
-    .hero h1 {
-        font-size: 28px; /* Shrinks the giant text */
-        line-height: 1.2;
+    .lang-current {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid #009472;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .hero p {
-        font-size: 16px;
+    .lang-current img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
-    /* 4. Course Cards: Stack them! */
-    .course-grid-detailed {
-        grid-template-columns: 1fr; /* Changes 3 columns to 1 */
-        gap: 20px;
+    /* 4. Student Carousel Fix (No more leaks) */
+    .students-section {
+        overflow: hidden; /* Strict clip */
+        width: 100%;
     }
 
-    .course-column {
-        padding: 25px;
+    .students-scroll-container {
+        padding: 30px 0 !important;
+        gap: 15px;
     }
 
-    /* 5. Student Cards: Shrink and Stack Content */
     .student-card {
-        flex: 0 0 85vw; /* Each card takes up 85% of phone width */
-        min-width: 85vw;
-        flex-direction: column; /* Image on top, text on bottom */
+        flex: 0 0 85vw !important; /* Force width */
+        min-width: 85vw !important;
+        max-width: 85vw !important;
+        flex-direction: column;
         height: auto;
+        filter: blur(0); /* On mobile, blur can be annoying; optional to keep */
+        opacity: 1;
+        transform: scale(1) !important;
     }
 
     .trf-wrapper {
-        width: 100%; /* Image box takes full width */
-        min-height: 220px;
+        width: 100%;
+        min-height: 200px;
     }
 
     .student-info {
-        width: 100%; /* Text box takes full width */
-        padding: 20px;
-    }
-
-    .student-info h3 {
-        font-size: 18px;
-    }
-
-    .testimonial {
-        font-size: 13px;
-    }
-
-    /* Keep badges side-by-side but smaller */
-    .score-badges {
-        gap: 8px;
-    }
-
-    .badge {
-        min-width: 70px;
-        padding: 10px;
-    }
-    
-    .badge .value {
-        font-size: 20px;
-    }
-
-    /* 6. About Section */
-    .about-inner {
-        flex-direction: column;
+        width: 100%;
+        padding: 15px;
         text-align: center;
     }
 
-    .about-visual {
-        display: none; /* Often better to hide the empty visual box on mobile to save space */
+    /* 5. Hero & About adjustments */
+    .hero h1 { font-size: 24px; }
+    
+    .course-grid-detailed {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
     }
+
+    /* Practice Button as a full-width action */
+    #practiceBtn {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    /* Styling for the alert message if you use a div instead of alert() */
+.mobile-notice {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff9800; /* Warning orange */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    display: none; /* Hidden by default */
+}
 }

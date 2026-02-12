@@ -243,12 +243,21 @@
 <script>
   // Your existing Practice Button and Scroll Logic remains the same...
   const practiceBtn = document.getElementById("practiceBtn");
-  const transition = document.getElementById("pageTransition");
+const transition = document.getElementById("pageTransition");
 
-  practiceBtn.addEventListener("click", () => {
-    transition.classList.add("active");
-    setTimeout(() => { window.location.href = "practice.html"; }, 350);
-  });
+practiceBtn.addEventListener("click", () => {
+    // Check if the screen width is mobile (less than 768px)
+    if (window.innerWidth <= 768) {
+        alert("This practice test is only available on desktop for the best experience.");
+    } else {
+        // Run the transition for desktop users
+        transition.classList.add("active");
+
+        setTimeout(() => {
+            window.location.href = "practice.html";
+        }, 350);
+    }
+});
 
   document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".students-scroll-container");
