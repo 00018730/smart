@@ -789,7 +789,7 @@ body {
     .brand-logo {
         height: 25px;
         width: auto;
-        order: 2; /* Logo to the right of text */
+        order: 1; /* Logo to the right of text */
     }
 
     .lang-switcher {

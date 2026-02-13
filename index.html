@@ -297,8 +297,18 @@
     // Toggle Menu
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', () => {
+            // This line adds/removes the 'active' class
             mainNav.classList.toggle('active');
-            menuToggle.innerHTML = mainNav.classList.contains('active') ? '✕' : '☰';
+            
+            // Debugging: This will show up in your browser console
+            console.log("Menu state active:", mainNav.classList.contains('active'));
+            
+            // Optional: Change the icon from ☰ to ✕
+            if (mainNav.classList.contains('active')) {
+                menuToggle.innerHTML = '✕';
+            } else {
+                menuToggle.innerHTML = '☰';
+            }
         });
     }
 
