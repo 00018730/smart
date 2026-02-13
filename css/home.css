@@ -760,7 +760,7 @@ body {
 
     /* Hamburger Visible */
     .menu-toggle {
-        display: block !important;
+        
         visibility: visible !important;
         background: transparent;
         border: none;
@@ -770,6 +770,11 @@ body {
         z-index: 1001;
         flex: 1;
         text-align: left;
+
+        margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     }
 
     /* Brand Center: Logo | Name */
@@ -799,6 +804,9 @@ body {
         display: flex;
         justify-content: flex-end;
         position: relative; /* Context for dropdown */
+
+        align-items: center;
+        margin: 0;
     }
 
     /* FIX: Language Dropdown Visibility */
@@ -807,7 +815,7 @@ body {
         position: absolute;
         top: 100%;
         right: 0;
-        background: #002b2a;
+        background: white;
         min-width: 120px;
         flex-direction: column;
         z-index: 3000 !important; /* Highest layer */
@@ -829,7 +837,7 @@ body {
         top: 70px;
         left: 0;
         width: 100%;
-        background: #002b2a;
+        background: white;
         padding: 20px;
         z-index: 2000 !important; /* Sits below lang-dropdown but above content */
         gap: 15px;
