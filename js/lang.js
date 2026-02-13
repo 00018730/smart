@@ -1,6 +1,5 @@
 const translations = {
   en: {
-    // Header & Hero
     centerName: "Smart Learning Center",
     navHome: "Home",
     navCourses: "Courses",
@@ -11,12 +10,8 @@ const translations = {
     heroTitle: "Learn English.<br>Build Confidence.<br>Achieve Results.",
     heroText: "IELTS preparation and English courses designed for real progress — not memorization.",
     enrollBtn: "Enroll Now",
-
-    // About Section
     aboutTitle: "About Smart Learning Center",
     aboutText: "We are a modern learning center focused on helping students achieve real English fluency and strong IELTS results through structured lessons, expert guidance, and consistent practice.",
-
-    // Courses Section
     coursesTitle: "Our courses",
     coursesSubtitle: "Discover the courses available at Smart Learning Center and choose the one that suits you best",
     courseGE: "General English",
@@ -31,8 +26,6 @@ const translations = {
     courseI2_1: "Learn about IELTS in more detail.",
     courseI2_2: "More comprehensive strategies to effectively tackle the IELTS test.",
     courseI2_3: "Every student receives books and copybooks at no additional cost.",
-
-    // Students Section
     studentsTitle: "Our students",
     studentsSubtitle: "Discover the results of our students and get motivated",
     overallScore: "Overall IELTS Score",
@@ -42,7 +35,6 @@ const translations = {
     student3Testimonial: "Thanks to the intensive practice, I achieved a band 8.0 in Reading and Speaking.",
     student4Testimonial: "The best environment for IELTS preparation in the city! Highly recommended."
   },
-
   uz: {
     centerName: "Smart Learning Center",
     navHome: "Bosh sahifa",
@@ -54,10 +46,8 @@ const translations = {
     heroTitle: "Ingliz tilini o‘rganing.<br>Ishonch hosil qiling.<br>Natijaga erishing.",
     heroText: "Haqiqiy rivojlanish uchun tuzilgan IELTS va ingliz tili kurslari — yodlash emas, o'rganish.",
     enrollBtn: "Ro‘yxatdan o‘tish",
-
     aboutTitle: "Smart O‘quv Markazi haqida",
     aboutText: "Biz o'quvchilarga tizimli darslar va ekspert yo'l-yo'riqlari orqali ingliz tilida erkin so'zlashish hamda IELTSdan yuqori natijalarga erishishda yordam beramiz.",
-
     coursesTitle: "Bizning kurslar",
     coursesSubtitle: "Smart o'quv markazidagi mavjud kurslar bilan tanishing va o'zingizga mosini tanlang",
     courseGE: "Umumiy Ingliz tili",
@@ -72,7 +62,6 @@ const translations = {
     courseI2_1: "IELTS haqida batafsilroq ma'lumotga ega bo'ling.",
     courseI2_2: "IELTS testini topshirish uchun yanada mukammalroq strategiyalar.",
     courseI2_3: "Har bir talaba qo'shimcha xarajatlarsiz kitob va daftarlar bilan ta'minlanadi.",
-
     studentsTitle: "Bizning o'quvchilar",
     studentsSubtitle: "O'quvchilarimiz natijalarini ko'ring va motivatsiya oling",
     overallScore: "Umumiy IELTS bali",
@@ -82,7 +71,6 @@ const translations = {
     student3Testimonial: "Intensiv amaliyot tufayli Reading va Speakingdan 8.0 ballga erishdim.",
     student4Testimonial: "Shahar ichida IELTSga tayyorlanish uchun eng yaxshi joy! Tavsiya qilaman."
   },
-
   ru: {
     centerName: "Smart Learning Center",
     navHome: "Главная",
@@ -94,10 +82,8 @@ const translations = {
     heroTitle: "Изучайте английский.<br>Уверенность.<br>Результат.",
     heroText: "Подготовка к IELTS и курсы английского для реального прогресса, а не зубрежки.",
     enrollBtn: "Записаться",
-
     aboutTitle: "Об учебном центре Smart",
     aboutText: "Мы — современный центр обучения, помогающий студентам достичь свободного владения английским и высоких баллов IELTS через структурированные уроки.",
-
     coursesTitle: "Наши курсы",
     coursesSubtitle: "Ознакомьтесь с курсами в центре Smart и выберите подходящий для вас",
     courseGE: "Общий английский",
@@ -112,7 +98,6 @@ const translations = {
     courseI2_1: "Более глубокое изучение формата IELTS.",
     courseI2_2: "Комплексные стратегии для получения высоких баллов.",
     courseI2_3: "Каждый студент получает книги и тетради бесплатно.",
-
     studentsTitle: "Наши студенты",
     studentsSubtitle: "Посмотрите на результаты наших студентов и вдохновитесь",
     overallScore: "Общий балл IELTS",
@@ -130,16 +115,17 @@ const FLAGS = {
   ru: "assets/flags/ru.jpg"
 };
 
+// THIS IS THE REAL FUNCTION
 function updatePageContent(lang) {
-  // Update all elements with data-i18n
+  console.log("Switching language to:", lang);
+  
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.dataset.i18n;
-    if (translations[lang][key]) {
+    if (translations[lang] && translations[lang][key]) {
       el.innerHTML = translations[lang][key];
     }
   });
 
-  // Update current flag
   const currentFlag = document.getElementById("currentFlag");
   if (currentFlag) currentFlag.src = FLAGS[lang];
   
@@ -150,27 +136,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("langToggle");
   const dropdown = document.getElementById("langDropdown");
 
-  // Load saved language
+  if (!toggle || !dropdown) {
+    console.warn("Language elements not found.");
+    return; 
+  }
+
   const savedLang = localStorage.getItem("lang") || "en";
   updatePageContent(savedLang);
 
-  // Toggle dropdown
   toggle.addEventListener("click", (e) => {
+    e.preventDefault();
     e.stopPropagation();
-    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    dropdown.classList.toggle("show");
   });
 
-  // Language buttons logic
+  document.addEventListener("click", () => {
+    dropdown.classList.remove("show");
+  });
+
   document.querySelectorAll("[data-lang]").forEach(btn => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
       const lang = btn.dataset.lang;
       updatePageContent(lang);
-      dropdown.style.display = "none";
+      dropdown.classList.remove("show");
     });
-  });
-
-  // Close when clicking outside
-  document.addEventListener("click", () => {
-    dropdown.style.display = "none";
   });
 });

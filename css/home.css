@@ -730,6 +730,7 @@ body {
 .orange .course-features li::before { color: #ff9800; }
 .green .course-features li::before  { color: #4caf50; }
 
+
 /* ==========================================================================
    3. RESPONSIVE: MEDIUM SCREENS (Tablet/Small Laptop)
    ========================================================================== */
@@ -754,6 +755,7 @@ body {
         padding: 10px 15px !important;
         height: 70px;
         position: relative;
+        z-index: 2001; /* High enough to be over hero */
     }
 
     /* Hamburger Visible */
@@ -770,37 +772,58 @@ body {
         text-align: left;
     }
 
-    /* Brand Center: Name | Logo */
+    /* Brand Center: Logo | Name */
     .brand {
         display: flex !important;
-        flex-direction: row !important;
+        flex-direction: row !important; 
         align-items: center !important;
         justify-content: center !important;
         gap: 8px;
         flex: 3;
     }
 
-    .brand-name {
-        font-size: 14px;
-        white-space: nowrap;
-        order: 1;
-    }
-
     .brand-logo {
         height: 25px;
         width: auto;
-        order: 1; /* Logo to the right of text */
+        order: 1 !important; /* Forces logo to the LEFT */
+    }
+
+    .brand-name {
+        font-size: 14px;
+        white-space: nowrap;
+        order: 2 !important; /* Forces text to the RIGHT */
     }
 
     .lang-switcher {
         flex: 1;
         display: flex;
         justify-content: flex-end;
+        position: relative; /* Context for dropdown */
+    }
+
+    /* FIX: Language Dropdown Visibility */
+    .lang-dropdown {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #002b2a;
+        min-width: 120px;
+        flex-direction: column;
+        z-index: 3000 !important; /* Highest layer */
+        box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    /* This class is what your JS should toggle */
+    .lang-dropdown.show {
+        display: flex !important;
     }
 
     /* 4.2 Mobile Navigation Drawer */
     .main-nav {
-        display: none;
+        display: none; /* Hidden until .active added */
         flex-direction: column;
         position: absolute;
         top: 70px;
@@ -808,7 +831,7 @@ body {
         width: 100%;
         background: #002b2a;
         padding: 20px;
-        z-index: 1000;
+        z-index: 2000 !important; /* Sits below lang-dropdown but above content */
         gap: 15px;
         box-shadow: 0 10px 15px rgba(0,0,0,0.3);
     }
@@ -851,7 +874,7 @@ body {
         gap: 20px;
     }
 
-    /* 4.5 Mobile Student Cards (Disable blur for performance/usability) */
+    /* 4.5 Mobile Student Cards */
     .student-card {
         flex: 0 0 85vw;
         min-width: 300px;
@@ -868,4 +891,30 @@ body {
     .trf-wrapper { 
         min-height: 220px; 
     }
+}
+
+
+#langDropdown.show {
+    display: flex !important;
+    flex-direction: column !important; /* This stacks them vertically */
+    gap: 10px;                         /* Adds space between the buttons */
+    padding: 10px;
+    min-width: 80px;                  /* Ensures the box isn't too skinny */
+    align-items: flex-start;           /* Aligns text to the left */
+}
+
+#langDropdown button {
+    background: transparent;
+    border: none;
+    color: #002b2a;                      /* Or your preferred text color */
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    padding: 5px 0;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+#langDropdown button:hover {
+    color: #009472;                    /* Changes color when hovering */
 }

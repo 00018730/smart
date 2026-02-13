@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/home.css" />
   <style>
-    /* CRITICAL FIX: This makes the blur disappear when a card is in the center */
+    /* 1. STUDENT CARD BLUR LOGIC */
     .student-card {
         filter: blur(8px);
         opacity: 0.4;
@@ -21,7 +21,12 @@
         z-index: 10;
     }
 
-    /* Mobile Safety: Disable blur on small screens to prevent glitches */
+    /* 2. DROPDOWN VISIBILITY */
+    #langDropdown.show {
+        display: flex !important;
+    }
+
+    /* 3. MOBILE SAFETY */
     @media (max-width: 768px) {
         .student-card {
             filter: none !important;
@@ -35,11 +40,11 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <button class="menu-toggle" id="menuToggle" style="display: block;">☰</button>
+    <button class="menu-toggle" id="menuToggle">☰</button>
 
     <div class="brand">
-      <span class="brand-name" data-i18n="centerName">Smart Learning Center</span>
       <img src="assets/logogreen.png" alt="Logo" class="brand-logo" />
+      <span class="brand-name" data-i18n="centerName">Smart Learning Center</span>
     </div>
 
     <nav class="main-nav" id="mainNav">
@@ -52,10 +57,16 @@
     </nav>
 
     <div class="lang-switcher">
-      <button class="lang-current" id="langToggle">
+      <button class="lang-current" id="langToggle"> 
         <img id="currentFlag" src="assets/flags/uk.jpg" alt="English" />
       </button>
+
+      <div class="lang-dropdown" id="langDropdown">
+        <button data-lang="en">English</button>
+        <button data-lang="uz">Uzbek</button>
+        <button data-lang="ru">Russian</button>
       </div>
+    </div>
   </div>
 </header>
 
@@ -172,8 +183,11 @@
 </section>
 
 <section class="students-section">
-  <div class="container"><h2 class="section-title" data-i18n="studentsTitle">Our students</h2><p class="section-subtitle" data-i18n="studentsSubtitle">Discover the results of our students and get motivated</p></div>
-    <div class="scroll-wrapper">
+  <div class="container">
+    <h2 class="section-title" data-i18n="studentsTitle">Our students</h2>
+    <p class="section-subtitle" data-i18n="studentsSubtitle">Discover the results of our students and get motivated</p>
+  </div>
+  <div class="scroll-wrapper">
     <div class="students-scroll-container">
         <div class="student-card">
             <div class="trf-wrapper">
@@ -197,7 +211,7 @@
             </div>
             <div class="student-info">
                 <h3>Olloyor Maqsudov</h3>
-                <p class="testimonial" data-i18n="student2Testimonial">"I improved my listening and reading significantly. The mock tests are great."</p>
+                <p class="testimonial" data-i18n="student2Testimonial">"I improved my listening and reading significantly."</p>
                 <div class="score-badges">
                     <div class="badge score-main"><span class="label" data-i18n="overallScore">Overall</span><span class="value">7.5</span></div>
                     <div class="badge score-level"><span class="label" data-i18n="cefrLevel">CEFR</span><span class="value">C1</span></div>
@@ -212,40 +226,22 @@
             </div>
             <div class="student-info">
                 <h3>Karimova Lola</h3>
-                <p class="testimonial" data-i18n="student3Testimonial">"Thanks to the intensive practice, I achieved a band 8.0 in Reading."</p>
+                <p class="testimonial" data-i18n="student3Testimonial">"I achieved a band 8.0 in Reading."</p>
                 <div class="score-badges">
                     <div class="badge score-main"><span class="label" data-i18n="overallScore">Overall</span><span class="value">8.0</span></div>
                     <div class="badge score-level"><span class="label" data-i18n="cefrLevel">CEFR</span><span class="value">C1</span></div>
                 </div>
             </div>
         </div>
-
-        <div class="student-card">
-            <div class="trf-wrapper">
-                <img src="assets/results/student4.jpg" alt="IELTS Result" class="trf-img">
-                <div class="trf-peel"></div>
-            </div>
-            <div class="student-info">
-                <h3>Islamov Bekzod</h3>
-                <p class="testimonial" data-i18n="student4Testimonial">"The best environment for IELTS preparation in the city!"</p>
-                <div class="score-badges">
-                    <div class="badge score-main"><span class="label" data-i18n="overallScore">Overall</span><span class="value">7.0</span></div>
-                    <div class="badge score-level"><span class="label" data-i18n="cefrLevel">CEFR</span><span class="value">B2</span></div>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
+  </div>
 </section>
 
 <section class="practice">
   <div class="container practice-inner">
     <h2 data-i18n="practiceBtn">Practice with Real IELTS Mock Tests</h2>
-    <p data-i18n="heroText">
-      Experience full IELTS-style tests with timing, question formats,
-      and instant feedback.
-    </p>
-    <button class="btn-primary" data-i18n="practiceBtn">Go to Practice Platform</button>
+    <p>Experience full IELTS-style tests with timing and instant feedback.</p>
+    <button class="btn-primary" id="practiceMainBtn" data-i18n="practiceBtn">Go to Practice Platform</button>
   </div>
 </section>
 
@@ -255,120 +251,97 @@
   </div>
 </footer>
 
+<div id="pageTransition" class="page-transition"></div>
+
 <script src="js/carousel.js"></script>
 <script src="js/lang.js"></script>
 
-<div id="pageTransition" class="page-transition"></div>
-
 <script>
-  // 1. PRACTICE BUTTONS LOGIC
-  const btnDesktop = document.getElementById("practiceBtnDesktop");
-  const btnMobile = document.getElementById("practiceBtnMobile");
-  const transition = document.getElementById("pageTransition");
-
-  const handlePractice = () => {
-    if (window.innerWidth <= 768) {
-      alert("This practice test is only available on desktop for the best experience.");
-    } else {
-      transition.classList.add("active");
-      setTimeout(() => { window.location.href = "practice.html"; }, 350);
-    }
-  };
-
-  if(btnDesktop) btnDesktop.addEventListener("click", handlePractice);
-  if(btnMobile) btnMobile.addEventListener("click", handlePractice);
-
-  // 2. MOBILE MENU TOGGLE
-  const menuToggle = document.getElementById('menuToggle');
-  const mainNav = document.getElementById('mainNav');
-
-  menuToggle.addEventListener('click', () => {
-    mainNav.classList.toggle('active');
-  });
-
-  // 3. STUDENT CARDS SCROLL & FOCUS
-  document.addEventListener("DOMContentLoaded", () => {
-    // === 1. MOBILE MENU & BUTTONS ===
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. SELECT ELEMENTS
     const menuToggle = document.getElementById('menuToggle');
     const mainNav = document.getElementById('mainNav');
+    const langToggle = document.getElementById('langToggle');
+    const langDropdown = document.getElementById('langDropdown');
     const btnDesktop = document.getElementById("practiceBtnDesktop");
     const btnMobile = document.getElementById("practiceBtnMobile");
+    const btnMain = document.getElementById("practiceMainBtn");
+    const transition = document.getElementById("pageTransition");
 
-    // Toggle Menu
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', () => {
-            // This line adds/removes the 'active' class
-            mainNav.classList.toggle('active');
-            
-            // Debugging: This will show up in your browser console
-            console.log("Menu state active:", mainNav.classList.contains('active'));
-            
-            // Optional: Change the icon from ☰ to ✕
-            if (mainNav.classList.contains('active')) {
-                menuToggle.innerHTML = '✕';
-            } else {
-                menuToggle.innerHTML = '☰';
-            }
-        });
-    }
-
-    // Practice Alert Logic
-    const handlePracticeClick = (e) => {
+    // 2. NAVIGATION & PRACTICE LOGIC
+    const handlePractice = (e) => {
+        e.preventDefault();
         if (window.innerWidth <= 768) {
-            e.preventDefault();
-            alert("This feature is only available on Desktop for the best experience.");
+            alert("This practice test is only available on desktop for the best experience.");
+        } else {
+            if(transition) transition.classList.add("active");
+            setTimeout(() => { window.location.href = "practice.html"; }, 350);
         }
     };
 
-    if (btnDesktop) btnDesktop.addEventListener("click", handlePracticeClick);
-    if (btnMobile) btnMobile.addEventListener("click", handlePracticeClick);
+    if(btnDesktop) btnDesktop.addEventListener("click", handlePractice);
+    if(btnMobile) btnMobile.addEventListener("click", handlePractice);
+    if(btnMain) btnMain.addEventListener("click", handlePractice);
+
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mainNav.classList.toggle('active');
+            menuToggle.innerHTML = mainNav.classList.contains('active') ? '✕' : '☰';
+        });
+    }
 
 
-    // === 2. STUDENT SCROLL LOGIC (Your existing code, integrated) ===
-    const container = document.querySelector(".students-scroll-container");
-    if(!container) return;
 
-    const originalCards = Array.from(container.children);
-    
-    // Create clones for infinite look
-    originalCards.forEach(card => {
-        const startClone = card.cloneNode(true);
-        const endClone = card.cloneNode(true);
-        container.appendChild(endClone);
-        container.insertBefore(startClone, container.firstChild);
+    // 4. GLOBAL CLICK (Close on outside click)
+    document.addEventListener('click', (e) => {
+        if (langDropdown && !langToggle.contains(e.target)) {
+            langDropdown.classList.remove('show');
+        }
+        if (mainNav && !menuToggle.contains(e.target) && !mainNav.contains(e.target)) {
+            mainNav.classList.remove('active');
+            if (menuToggle) menuToggle.innerHTML = '☰';
+        }
     });
 
-    // Initial Scroll Position
-    const cardWidth = originalCards[0].offsetWidth + 30;
-    container.scrollLeft = cardWidth * originalCards.length;
-
-    const updateFocus = () => {
-        const containerRect = container.getBoundingClientRect();
-        const center = containerRect.left + containerRect.width / 2;
-        const allCards = container.querySelectorAll(".student-card");
-        
-        let closestCard = null;
-        let minDistance = Infinity;
-
-        allCards.forEach(card => {
-            const cardRect = card.getBoundingClientRect();
-            const cardCenter = cardRect.left + cardRect.width / 2;
-            const distance = Math.abs(center - cardCenter);
-            
-            card.classList.remove("is-focused");
-            
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestCard = card;
-            }
+    // 5. STUDENT SCROLL LOGIC
+    const container = document.querySelector(".students-scroll-container");
+    if(container) {
+        const originalCards = Array.from(container.children);
+        originalCards.forEach(card => {
+            const startClone = card.cloneNode(true);
+            const endClone = card.cloneNode(true);
+            container.appendChild(endClone);
+            container.insertBefore(startClone, container.firstChild);
         });
-        
-        if (closestCard) closestCard.classList.add("is-focused");
-    };
 
-    container.addEventListener("scroll", updateFocus);
-    window.addEventListener("resize", updateFocus);
-    setTimeout(updateFocus, 100);
+        const cardWidth = originalCards[0].offsetWidth + 30;
+        container.scrollLeft = cardWidth * originalCards.length;
+
+        const updateFocus = () => {
+            const containerRect = container.getBoundingClientRect();
+            const center = containerRect.left + containerRect.width / 2;
+            const allCards = container.querySelectorAll(".student-card");
+            let closestCard = null;
+            let minDistance = Infinity;
+
+            allCards.forEach(card => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenter = cardRect.left + cardRect.width / 2;
+                const distance = Math.abs(center - cardCenter);
+                card.classList.remove("is-focused");
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestCard = card;
+                }
+            });
+            if (closestCard) closestCard.classList.add("is-focused");
+        };
+
+        container.addEventListener("scroll", updateFocus);
+        window.addEventListener("resize", updateFocus);
+        setTimeout(updateFocus, 100);
+    }
 });
 </script>
 
