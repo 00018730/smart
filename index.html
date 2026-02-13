@@ -5,16 +5,41 @@
   <title>Smart Learning Center</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/home.css" />
+  <style>
+    /* CRITICAL FIX: This makes the blur disappear when a card is in the center */
+    .student-card {
+        filter: blur(8px);
+        opacity: 0.4;
+        transition: all 0.4s ease;
+        transform: scale(0.9);
+    }
+
+    .student-card.is-focused {
+        filter: blur(0) !important;
+        opacity: 1 !important;
+        transform: scale(1.05) !important;
+        z-index: 10;
+    }
+
+    /* Mobile Safety: Disable blur on small screens to prevent glitches */
+    @media (max-width: 768px) {
+        .student-card {
+            filter: none !important;
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+    }
+  </style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="container header-inner">
-    <button class="menu-toggle" id="menuToggle">☰</button>
+    <button class="menu-toggle" id="menuToggle" style="display: block;">☰</button>
 
     <div class="brand">
-      <img src="assets/logogreen.png" alt="Smart Learning Center Logo" class="brand-logo" />
       <span class="brand-name" data-i18n="centerName">Smart Learning Center</span>
+      <img src="assets/logogreen.png" alt="Logo" class="brand-logo" />
     </div>
 
     <nav class="main-nav" id="mainNav">
@@ -30,12 +55,7 @@
       <button class="lang-current" id="langToggle">
         <img id="currentFlag" src="assets/flags/uk.jpg" alt="English" />
       </button>
-      <div class="lang-dropdown" id="langDropdown">
-        <button data-lang="en"><img src="assets/flags/uk.jpg" alt="English" /> English</button>
-        <button data-lang="uz"><img src="assets/flags/uzb.jpg" alt="Uzbek" /> Uzbek</button>
-        <button data-lang="ru"><img src="assets/flags/ru.jpg" alt="Russian" /> Russian</button>
       </div>
-    </div>
   </div>
 </header>
 
@@ -239,43 +259,68 @@
 <script src="js/lang.js"></script>
 
 <div id="pageTransition" class="page-transition"></div>
+
 <script>
-  // Your existing Practice Button and Scroll Logic remains the same...
-  const practiceBtn = document.getElementById("practiceBtn");
-const transition = document.getElementById("pageTransition");
+  // 1. PRACTICE BUTTONS LOGIC
+  const btnDesktop = document.getElementById("practiceBtnDesktop");
+  const btnMobile = document.getElementById("practiceBtnMobile");
+  const transition = document.getElementById("pageTransition");
 
-practiceBtn.addEventListener("click", () => {
-    // Check if the screen width is mobile (less than 768px)
+  const handlePractice = () => {
     if (window.innerWidth <= 768) {
-        alert("This practice test is only available on desktop for the best experience.");
+      alert("This practice test is only available on desktop for the best experience.");
     } else {
-        // Run the transition for desktop users
-        transition.classList.add("active");
-
-        setTimeout(() => {
-            window.location.href = "practice.html";
-        }, 350);
+      transition.classList.add("active");
+      setTimeout(() => { window.location.href = "practice.html"; }, 350);
     }
-});
+  };
 
-// Toggle Mobile Menu
-const menuToggle = document.getElementById('menuToggle');
-const mainNav = document.getElementById('mainNav');
+  if(btnDesktop) btnDesktop.addEventListener("click", handlePractice);
+  if(btnMobile) btnMobile.addEventListener("click", handlePractice);
 
-menuToggle.addEventListener('click', () => {
+  // 2. MOBILE MENU TOGGLE
+  const menuToggle = document.getElementById('menuToggle');
+  const mainNav = document.getElementById('mainNav');
+
+  menuToggle.addEventListener('click', () => {
     mainNav.classList.toggle('active');
-});
+  });
 
-// Practice Button Mobile Logic
-const practiceBtnMobile = document.getElementById('practiceBtnMobile');
-practiceBtnMobile.addEventListener('click', () => {
-    alert("This feature is only available on Desktop for the best experience.");
-});
-
+  // 3. STUDENT CARDS SCROLL & FOCUS
   document.addEventListener("DOMContentLoaded", () => {
+    // === 1. MOBILE MENU & BUTTONS ===
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const btnDesktop = document.getElementById("practiceBtnDesktop");
+    const btnMobile = document.getElementById("practiceBtnMobile");
+
+    // Toggle Menu
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            menuToggle.innerHTML = mainNav.classList.contains('active') ? '✕' : '☰';
+        });
+    }
+
+    // Practice Alert Logic
+    const handlePracticeClick = (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            alert("This feature is only available on Desktop for the best experience.");
+        }
+    };
+
+    if (btnDesktop) btnDesktop.addEventListener("click", handlePracticeClick);
+    if (btnMobile) btnMobile.addEventListener("click", handlePracticeClick);
+
+
+    // === 2. STUDENT SCROLL LOGIC (Your existing code, integrated) ===
     const container = document.querySelector(".students-scroll-container");
+    if(!container) return;
+
     const originalCards = Array.from(container.children);
     
+    // Create clones for infinite look
     originalCards.forEach(card => {
         const startClone = card.cloneNode(true);
         const endClone = card.cloneNode(true);
@@ -283,37 +328,36 @@ practiceBtnMobile.addEventListener('click', () => {
         container.insertBefore(startClone, container.firstChild);
     });
 
-    const cardTotalWidth = originalCards[0].offsetWidth + 30;
-    const middleOffset = cardTotalWidth * originalCards.length;
-    container.scrollLeft = middleOffset;
+    // Initial Scroll Position
+    const cardWidth = originalCards[0].offsetWidth + 30;
+    container.scrollLeft = cardWidth * originalCards.length;
 
     const updateFocus = () => {
         const containerRect = container.getBoundingClientRect();
-        const containerCenter = containerRect.left + containerRect.width / 2;
+        const center = containerRect.left + containerRect.width / 2;
         const allCards = container.querySelectorAll(".student-card");
+        
         let closestCard = null;
         let minDistance = Infinity;
 
         allCards.forEach(card => {
             const cardRect = card.getBoundingClientRect();
             const cardCenter = cardRect.left + cardRect.width / 2;
-            const distance = Math.abs(containerCenter - cardCenter);
+            const distance = Math.abs(center - cardCenter);
+            
             card.classList.remove("is-focused");
+            
             if (distance < minDistance) {
                 minDistance = distance;
                 closestCard = card;
             }
         });
-        if (closestCard) { closestCard.classList.add("is-focused"); }
+        
+        if (closestCard) closestCard.classList.add("is-focused");
     };
 
-    container.addEventListener("scroll", () => {
-        const scrollPos = container.scrollLeft;
-        const maxScroll = container.scrollWidth - container.clientWidth;
-        if (scrollPos <= 0) { container.scrollLeft = middleOffset; } 
-        else if (scrollPos >= maxScroll - 1) { container.scrollLeft = middleOffset; }
-        updateFocus();
-    });
+    container.addEventListener("scroll", updateFocus);
+    window.addEventListener("resize", updateFocus);
     setTimeout(updateFocus, 100);
 });
 </script>

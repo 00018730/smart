@@ -549,9 +549,9 @@ body {
     
     /* Base State: Blurred and pushed back */
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    filter: blur(8px); 
-    opacity: 0.3;
-    transform: scale(0.85); 
+    filter: blur(0) !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
     pointer-events: none; 
     user-select: none;
 }
@@ -637,24 +637,37 @@ body {
 .badge .label { font-size: 10px; text-transform: uppercase; opacity: 0.8; }
 .badge .value { font-size: 18px; font-weight: 700; }
 
-/* ========== 6. RESPONSIVE ========== */
-@media (max-width: 1100px) {
-    .student-card {
-        flex: 0 0 450px;
-        min-width: 450px;
-    }
+/* ==========================================================================
+   1. GLOBAL & DESKTOP DEFAULTS
+   ========================================================================== */
+
+/* Hide mobile-specific elements on Desktop by default */
+.menu-toggle, 
+.mobile-only {
+    display: none !important;
 }
 
-@media (max-width: 768px) {
-    .student-card {
-        flex: 0 0 85vw; /* Use viewport width for better sizing on mobile */
-        min-width: 300px;
-        flex-direction: column;
-    }
-    .trf-wrapper, .student-info { width: 100%; }
-    .trf-wrapper { min-height: 220px; }
+/* Base Student Card Styles (Blurred by default) */
+.student-card {
+    flex: 0 0 550px;
+    min-width: 550px;
+    filter: blur(8px);
+    opacity: 0.4;
+    transition: all 0.4s ease;
+    transform: scale(0.9);
 }
 
+/* The class added by JavaScript when card is in center */
+.student-card.is-focused {
+    filter: blur(0) !important;
+    opacity: 1 !important;
+    transform: scale(1.05) !important;
+    z-index: 10;
+}
+
+/* ==========================================================================
+   2. COURSES SECTION (Desktop)
+   ========================================================================== */
 .course-grid-detailed {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -663,7 +676,7 @@ body {
 }
 
 .course-column {
-    background: rgba(255, 255, 255, 0.05); /* Subtle dark background */
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 24px;
     padding: 40px 30px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -687,10 +700,10 @@ body {
     color: #fff;
 }
 
-/* Colors from screenshot */
-.blue .icon-circle { background: #2196f3; }
+/* Course Theme Colors */
+.blue .icon-circle   { background: #2196f3; }
 .orange .icon-circle { background: #ff9800; }
-.green .icon-circle { background: #4caf50; }
+.green .icon-circle  { background: #4caf50; }
 
 .course-features {
     list-style: none;
@@ -706,7 +719,6 @@ body {
     line-height: 1.5;
 }
 
-/* The checkmark icons */
 .course-features li::before {
     content: '✔';
     position: absolute;
@@ -714,46 +726,71 @@ body {
     font-weight: bold;
 }
 
-.blue .course-features li::before { color: #2196f3; }
+.blue .course-features li::before   { color: #2196f3; }
 .orange .course-features li::before { color: #ff9800; }
-.green .course-features li::before { color: #4caf50; }
+.green .course-features li::before  { color: #4caf50; }
 
-/* --- Desktop Settings (Always active) --- */
-.menu-toggle, .mobile-only {
-    display: none; /* Hide mobile elements on desktop */
+/* ==========================================================================
+   3. RESPONSIVE: MEDIUM SCREENS (Tablet/Small Laptop)
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .student-card {
+        flex: 0 0 450px;
+        min-width: 450px;
+    }
 }
 
-/* --- Mobile Styles --- */
+/* ==========================================================================
+   4. RESPONSIVE: MOBILE (Phones)
+   ========================================================================== */
 @media screen and (max-width: 768px) {
-    /* 1. Header Layout: 3 Slots */
+    
+    /* 4.1 Header: 3-Slot Layout */
     .header-inner {
         display: flex !important;
-        flex-direction: row !important; /* Forces horizontal row */
+        flex-direction: row !important;
         justify-content: space-between !important;
         align-items: center !important;
         padding: 10px 15px !important;
+        height: 70px;
+        position: relative;
     }
 
+    /* Hamburger Visible */
     .menu-toggle {
-        display: block; /* Show hamburger */
-        background: none;
+        display: block !important;
+        visibility: visible !important;
+        background: transparent;
         border: none;
-        color: white;
-        font-size: 28px;
+        color: #009472;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 1001;
         flex: 1;
         text-align: left;
     }
 
+    /* Brand Center: Name | Logo */
     .brand {
-        flex: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px;
+        flex: 3;
     }
-    
-    .brand-logo { height: 30px; width: auto; }
-    .brand-name { font-size: 14px; }
+
+    .brand-name {
+        font-size: 14px;
+        white-space: nowrap;
+        order: 1;
+    }
+
+    .brand-logo {
+        height: 25px;
+        width: auto;
+        order: 2; /* Logo to the right of text */
+    }
 
     .lang-switcher {
         flex: 1;
@@ -761,36 +798,43 @@ body {
         justify-content: flex-end;
     }
 
-    /* 2. Navigation Drawer */
+    /* 4.2 Mobile Navigation Drawer */
     .main-nav {
-        display: none; /* Hidden until hamburger clicked */
+        display: none;
         flex-direction: column;
         position: absolute;
-        top: 100%; /* Sits right under header */
+        top: 70px;
         left: 0;
         width: 100%;
         background: #002b2a;
         padding: 20px;
         z-index: 1000;
         gap: 15px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.3);
     }
 
     .main-nav.active {
-        display: flex; /* Show when toggled */
+        display: flex !important;
     }
 
     .desktop-only { display: none !important; }
 
-    /* 3. Mobile Practice Button (Below Header) */
+    /* 4.3 Mobile Practice Button */
     .mobile-only {
         display: block !important;
         width: 90%;
-        margin: 15px auto;
+        margin: 10px auto !important;
         padding: 15px;
-        text-align: center;
+        background: #009472;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        position: relative;
+        z-index: 5;
     }
 
-    /* 4. Hero Alignment */
+    /* 4.4 Hero & Layout Adjustments */
     .hero {
         text-align: left !important;
         padding: 40px 20px !important;
@@ -800,10 +844,28 @@ body {
         text-align: left !important;
     }
 
-    /* 5. Course Boxes Stacking */
+    /* Stack Course Boxes */
     .course-grid-detailed {
         display: flex !important;
         flex-direction: column !important;
         gap: 20px;
+    }
+
+    /* 4.5 Mobile Student Cards (Disable blur for performance/usability) */
+    .student-card {
+        flex: 0 0 85vw;
+        min-width: 300px;
+        flex-direction: column;
+        filter: none !important;
+        opacity: 1 !important;
+        transform: scale(1) !important;
+    }
+
+    .trf-wrapper, .student-info { 
+        width: 100%; 
+    }
+    
+    .trf-wrapper { 
+        min-height: 220px; 
     }
 }
