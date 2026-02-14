@@ -1,7 +1,7 @@
 window.READING_TESTS = {
   reading_mock1: {
     id: "reading_mock1",
-    timeLimit: 360,
+    timeLimit: 3600,
 
     passages: [
       {
