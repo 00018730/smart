@@ -408,20 +408,29 @@ async function finishListening() {
 
   const finalScore = calculateScore();
   const attemptId = sessionStorage.getItem("attemptId");
+console.log("🔍 Attempt ID found in Storage:", attemptId); // CHECK THIS
 
-  // Save to Supabase
-  if (attemptId && window.supabaseClient) {
+if (attemptId && window.supabaseClient) {
     try {
-      const { error } = await window.supabaseClient
-        .from('test_attempts')
-        .update({ listening_score: finalScore })
-        .eq('id', attemptId);
-      if (error) throw error;
-      console.log("✅ Score saved to Supabase");
+        const { data, error } = await window.supabaseClient
+            .from('test_attempts')
+            .update({ listening_score: finalScore })
+            .eq('id', attemptId)
+            .select(); // This helps confirm if the row was actually found
+            
+        if (error) {
+            console.error("❌ Supabase Error:", error.message);
+        } else if (data.length === 0) {
+            console.warn("⚠️ Row found? No. The ID might not exist in the DB.");
+        } else {
+            console.log("✅ Successfully updated row:", data);
+        }
     } catch (e) {
-      console.error("❌ Supabase Sync Failed:", e.message);
+        console.error("❌ Script Crash:", e);
     }
-  }
+} else {
+    console.error("❌ Cannot sync: AttemptID is missing OR SupabaseClient is null");
+}
 
   // Session storage fallback
   sessionStorage.setItem("listeningScore", finalScore);

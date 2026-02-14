@@ -7,3 +7,7 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 console.log("🟢 Supabase client exported");
+
+// At the end of your client.js file
+window.supabaseClient = supabase; 
+console.log("Global Supabase client exported to window.");
